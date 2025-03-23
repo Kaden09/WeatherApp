@@ -5,6 +5,10 @@ import {
   RainIcon,
   NightIcon,
   SunIcon,
+  LocationIcon,
+  ClockIcon,
+  SunsetIcon,
+  SunriseIcon,
 } from "../../assets/index.ts";
 import { Text } from "../../shared/ui/index.ts";
 
@@ -16,6 +20,10 @@ function MainPage() {
       <RainIcon />
       <NightIcon />
       <SunIcon />
+      <LocationIcon />
+      <ClockIcon />
+      <SunsetIcon />
+      <SunriseIcon />
       <Text size="extra-large">Some text</Text>
     </div>
   );
