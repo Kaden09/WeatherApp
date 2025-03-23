@@ -1,0 +1,27 @@
+.drop1 {
+  animation: rain 2s infinite ease-in-out;
+}
+
+.drop2 {
+  animation: rain 2.1s infinite ease-in-out;
+}
+
+.drop3 {
+  animation: rain 1.8s infinite ease-in-out;
+}
+
+.drop4 {
+  animation: rain 1.9s infinite ease-in-out;
+}
+
+@keyframes rain {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(-0.23px, 0.4px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}

@@ -1,0 +1,23 @@
+.big-star {
+  animation: levitation 3s infinite ease-in-out;
+}
+
+.small-star {
+  animation: levitation 2.5s infinite ease-in-out;
+}
+
+.moon {
+  animation: levitation 2.8s infinite ease-in-out;
+}
+
+@keyframes levitation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
