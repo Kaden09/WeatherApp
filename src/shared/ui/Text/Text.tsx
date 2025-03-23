@@ -14,7 +14,7 @@ const Text = ({
     styles[`text__${color}`],
     className,
   );
-  return <h2 className={cls}>{children}</h2>;
+  return <span className={cls}>{children}</span>;
 };
 
 export default Text;
