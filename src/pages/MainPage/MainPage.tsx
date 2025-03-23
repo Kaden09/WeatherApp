@@ -6,6 +6,7 @@ import {
   NightIcon,
   SunIcon,
 } from "../../assets/index.ts";
+import { Text } from "../../shared/ui/index.ts";
 
 function MainPage() {
   return (
@@ -15,6 +16,7 @@ function MainPage() {
       <RainIcon />
       <NightIcon />
       <SunIcon />
+      <Text size="extra-large">Some text</Text>
     </div>
   );
 }
