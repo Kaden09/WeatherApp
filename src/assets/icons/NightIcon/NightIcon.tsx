@@ -2,7 +2,7 @@ import styles from "./NightIcon.module.scss";
 
 function NightIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="100px" viewBox="0 0 24 18">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 18">
       <mask id="moon-mask">
         <rect width="100%" height="100%" fill="#fff" />
         <circle cx="20" cy="2" r="3" fill="#000" />

@@ -1,14 +1,20 @@
 .weather-card {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   justify-self: start;
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  padding: 20px;
+  width: 100%;
+  padding: 15px 10px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.03);
+  transition: all 0.2s;
   animation: fadeIn 1s;
+
+  &:hover {
+    background: rgba(255,255,255,0.05)
+  }
 
   .date-info {
     display: flex;
@@ -16,17 +22,16 @@
     text-align: center;
   }
 
-  .image {
+  .weather-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
   }
 
   .degrees {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 80%;
     color: rgba(255, 255, 255, 0.5);
 
     .degrees-value {
@@ -34,7 +39,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      line-height: 17px;
+      line-height: 14px;
     }
   }
 }

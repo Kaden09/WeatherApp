@@ -2,7 +2,7 @@ function SunIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="100px"
+      width="70%"
       viewBox="0 0 24 24"
       fill="#FBC02D"
       stroke="#FBC02D"

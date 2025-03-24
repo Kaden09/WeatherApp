@@ -2,7 +2,7 @@ import styles from "./RainIcon.module.scss";
 
 function RainIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="100px" viewBox="0 0 24 18">
+    <svg xmlns="http://www.w3.org/2000/svg" width="90%" viewBox="0 0 24 18">
       <g fill="#fefefc">
         <circle cx="8.5" cy="7.5" r="4.5" />
         <circle cx="12" cy="6" r="6" />

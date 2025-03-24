@@ -1,6 +1,6 @@
 function LightningIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 18" width="100px">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 18" width="100%">
       <mask id="lightning-mask">
         <rect width="100%" height="100%" fill="#fff" />
         <path

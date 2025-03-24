@@ -15,10 +15,10 @@ function WeatherCard({
   return (
     <div className={styles["weather-card"]}>
       <div className={styles["date-info"]}>
-        <Title>
+        <Title size="small">
           {new Date().getDay() === weekDay ? "Today" : WEEK_DAYS[weekDay]}
         </Title>
-        <Text color="secondary">
+        <Text size="middle" color="secondary">
           {MONTHS[month] + " "}
           {date}
         </Text>
@@ -30,15 +30,13 @@ function WeatherCard({
           <Text color="secondary" size="small">
             day
           </Text>
-          <Title size="middle" weight="medium">
-            {dayDegrees}°
-          </Title>
+          <Title size="middle">{dayDegrees}°</Title>
         </div>
         <div className={styles["degrees-value"]}>
           <Text color="secondary" size="small">
             night
           </Text>
-          <Title size="middle" color="secondary" weight="medium">
+          <Title size="middle" color="secondary">
             {nightDegrees}°
           </Title>
         </div>
