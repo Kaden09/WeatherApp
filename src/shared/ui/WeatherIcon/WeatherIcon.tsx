@@ -2,7 +2,6 @@ import {
   SunIcon,
   CloudIcon,
   RainIcon,
-  NightIcon,
   LightningIcon,
 } from "../../../assets/index.ts";
 import { IWeatherIcon } from "./WeatherIcon.interface.ts";

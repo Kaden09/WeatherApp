@@ -1,7 +1,6 @@
 import styles from "./WeatherCardsList.module.scss";
 import { useState, useEffect } from "react";
 import { WeatherCard } from "../index.ts";
-import { NightIcon } from "../../assets/index.ts";
 import { useWeekWeather } from "../../entities/weather/index.ts";
 import { WeatherIcon } from "../../shared/ui/index.ts";
 
