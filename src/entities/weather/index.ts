@@ -1,1 +1,1 @@
-export { default as useWeekWeather } from "./model/useWeekWeather.ts";
+export { default as fetchWeather } from "./api/weather.ts";
