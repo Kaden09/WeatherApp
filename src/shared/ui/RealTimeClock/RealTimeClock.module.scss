@@ -1,0 +1,10 @@
+.real-time-clock {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  .data {
+    display: flex;
+    gap: 3px;
+  }
+}

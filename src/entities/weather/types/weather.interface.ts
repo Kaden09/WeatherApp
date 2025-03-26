@@ -17,10 +17,18 @@ interface IDay {
   };
 }
 
+interface IHour {
+  cloud: number;
+  fellslike_c: number;
+  chance_of_rain: number;
+  chance_of_snow: number;
+}
+
 interface IForecast {
   date: string;
   day: IDay;
   astro: IAstro;
+  hour: IHour;
 }
 
 export interface IWeather {
