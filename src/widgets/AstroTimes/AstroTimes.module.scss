@@ -1,0 +1,25 @@
+.astro-times {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  gap: 15px;
+  width: 100%;
+  animation: expansion 1.5s;
+
+  .dotted-line {
+    border-top: 1px dotted rgba(255,255,255,0.5);
+    width: 100%;
+    animation: expansion 1s;
+  }
+}
+
+@keyframes expansion {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

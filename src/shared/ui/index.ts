@@ -5,3 +5,4 @@ export { default as Location } from "./Location/Location.tsx";
 export { default as AdditionalInfo } from "./AdditionalInfo/AdditionalInfo.tsx";
 export { default as RealTimeClock } from "./RealTimeClock/RealTimeClock.tsx";
 export { default as Clock } from "./Clock/Clock.tsx";
+export {default as IconWithText} from "./IconWithText/IconWithText.tsx";

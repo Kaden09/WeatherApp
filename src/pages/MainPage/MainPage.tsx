@@ -1,5 +1,5 @@
 import styles from "./MainPage.module.scss";
-import { WeatherCardsList } from "../../widgets/index.ts";
+import { WeatherCardsList, AstroTimes } from "../../widgets/index.ts";
 import {
   Location,
   AdditionalInfo,
@@ -11,7 +11,9 @@ function MainPage() {
     <div className={styles.wrapper}>
       <Location />
       <RealTimeClock />
+
       <AdditionalInfo />
+      <AstroTimes />
       <WeatherCardsList />
     </div>
   );
