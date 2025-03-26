@@ -1,0 +1,12 @@
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  gap: 20px;
+  width: 100%;
+
+  .icon {
+    width: 250px;
+    margin-top: 30px;
+  }
+}
