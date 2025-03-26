@@ -1,0 +1,13 @@
+.big-degrees {
+  display: flex;
+  align-items: start;
+
+  .degrees {
+    font-size: 120px;
+  }
+
+  .celsius {
+    font-size: 50px;
+    margin-top: 30px;
+  }
+}

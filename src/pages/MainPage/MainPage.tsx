@@ -1,22 +1,25 @@
 import styles from "./MainPage.module.scss";
-import { WeatherCardsList, AstroTimes } from "../../widgets/index.ts";
 import {
-  Location,
-  AdditionalInfo,
-  RealTimeClock,
-} from "../../shared/ui/index.ts";
+  WeatherCardsList,
+  AstroTimes,
+  AdditionalInfoList,
+} from "../../widgets/index.ts";
+import { Location, RealTimeClock, BigDegrees } from "../../shared/ui/index.ts";
+import { useWeather } from "../../features/weather/index.ts";
 
 function MainPage() {
-  return (
-    <div className={styles.wrapper}>
-      <Location />
-      <RealTimeClock />
-
-      <AdditionalInfo />
-      <AstroTimes />
-      <WeatherCardsList />
-    </div>
-  );
+  const { data } = useWeather();
+  if (data !== undefined)
+    return (
+      <div className={styles.wrapper}>
+        <Location />
+        <RealTimeClock />
+        <BigDegrees degrees={19} />
+        <AdditionalInfoList data={data} />
+        <AstroTimes />
+        <WeatherCardsList />
+      </div>
+    );
 }
 
 export default MainPage;

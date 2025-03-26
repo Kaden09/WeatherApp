@@ -1,8 +1,9 @@
 import { Title } from "../index.ts";
 import { useWeather } from "../../../features/weather/index.ts";
 import styles from "./AdditionalInfo.module.scss";
+import { IAdditionalInfo } from "./AdditionalInfo.interface.ts";
 
-function AdditionalInfo() {
+function AdditionalInfo({ item, value, units }: IAdditionalInfo) {
   const { data } = useWeather();
   const forecast = (data !== undefined && data.forecast.forecastday) || [];
 
@@ -10,9 +11,9 @@ function AdditionalInfo() {
     return (
       <div className={styles["additional-info"]}>
         <Title size="small" color="secondary">
-          Wind:
+          {item}:
         </Title>
-        <Title size="small">{forecast[0].day.maxwind_kph} km/h</Title>
+        <Title size="small">{value} {units}</Title>
       </div>
     );
 }

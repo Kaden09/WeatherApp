@@ -28,7 +28,7 @@ interface IForecast {
   date: string;
   day: IDay;
   astro: IAstro;
-  hour: IHour;
+  hour: IHour[];
 }
 
 export interface IWeather {
