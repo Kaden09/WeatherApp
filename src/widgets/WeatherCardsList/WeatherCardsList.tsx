@@ -3,12 +3,15 @@ import { useState, useEffect } from "react";
 import { WeatherCard } from "../index.ts";
 import { WeatherIcon } from "../../shared/ui/index.ts";
 import { useWeather } from "../../features/weather/index.ts";
+import { useSetAtom } from "jotai";
+import { cityAtom } from "../../shared/store/weatherAtoms.ts";
 
 function WeatherCardsList() {
   const [weekDaysOrder, setWeekDaysOrder] = useState<number[]>([
     0, 1, 2, 3, 4, 5, 6,
   ]);
-  const { data, isLoading, error } = useWeather("Budennovsk");
+  const { data, isLoading, error } = useWeather();
+  const setCity = useSetAtom(cityAtom);
   const forecastDays = data?.forecast.forecastday || [];
 
   useEffect(() => {
@@ -19,6 +22,12 @@ function WeatherCardsList() {
     ]);
   }, []);
 
+  useEffect(() => {
+    if (data !== undefined) {
+      setCity(data.location.name + ", " + data.location.tz_id.split("/")[0]);
+    }
+  }, [data]);
+
   if (isLoading) return <div>Loading</div>;
   if (error) console.log(error);
 
@@ -27,6 +36,7 @@ function WeatherCardsList() {
       {data !== undefined &&
         weekDaysOrder.map((el, i) => (
           <WeatherCard
+            key={el}
             weekDay={el}
             date={new Date(forecastDays[i].date).getDate()}
             month={new Date(forecastDays[i].date).getMonth()}
