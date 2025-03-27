@@ -1,12 +1,24 @@
 .main-content {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   gap: 20px;
   width: 100%;
 
   .icon {
-    width: 250px;
+    width: 30%;
     margin-top: 30px;
+  animation: fadeIn 2s;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

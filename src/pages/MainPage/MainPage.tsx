@@ -2,10 +2,9 @@ import styles from "./MainPage.module.scss";
 import {
   WeatherCardsList,
   AstroTimes,
-  AdditionalInfoList,
   MainContent,
+  MetaInfo,
 } from "../../widgets/index.ts";
-import { Location, RealTimeClock, BigDegrees } from "../../shared/ui/index.ts";
 import { useWeather } from "../../features/weather/index.ts";
 
 function MainPage() {
@@ -13,8 +12,7 @@ function MainPage() {
   if (data !== undefined)
     return (
       <div className={styles.wrapper}>
-        <Location />
-        <RealTimeClock />
+        <MetaInfo />
         <MainContent data={data} />
         <AstroTimes />
         <WeatherCardsList />

@@ -6,8 +6,8 @@ import { IMainContent } from "./MainContent.interface.ts";
 function MainContent({ data }: IMainContent) {
   if (data !== undefined)
     return (
-      <div className={styles["main-content"]}>
-        <BigDegrees
+      <main className={styles["main-content"]}>
+        <BigDegrees data={data}
           degrees={Math.round(data.forecast.forecastday[0].day.maxtemp_c)}
         />
         <div className={styles.icon}>
@@ -16,7 +16,7 @@ function MainContent({ data }: IMainContent) {
           />
         </div>
         <AdditionalInfoList data={data} />
-      </div>
+      </main>
     );
 }
 

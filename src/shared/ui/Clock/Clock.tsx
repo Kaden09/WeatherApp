@@ -31,9 +31,9 @@ function Clock() {
 
   return (
     <div className={styles.clock}>
-      <Title>{hours}</Title>
+      <Title size="large">{hours}</Title>
       <span className={styles.colon}>:</span>
-      <Title>{minutes}</Title>
+      <Title size="large">{minutes}</Title>
     </div>
   );
 }

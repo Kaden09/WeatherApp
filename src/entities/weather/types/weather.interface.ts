@@ -19,7 +19,7 @@ interface IDay {
 
 interface IHour {
   cloud: number;
-  fellslike_c: number;
+  feelslike_c: number;
   chance_of_rain: number;
   chance_of_snow: number;
 }

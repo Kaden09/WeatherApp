@@ -4,18 +4,17 @@
   align-items:center;
   gap: 15px;
   width: 100%;
-  animation: expansion 1.5s;
+  animation: expansion 2s;
 
   .dotted-line {
     border-top: 1px dotted rgba(255,255,255,0.5);
     width: 100%;
-    animation: expansion 1s;
   }
 }
 
 @keyframes expansion {
   0% {
-    transform: translateY(-20px);
+    transform: translateY(-30px);
     opacity: 0;
   }
   100% {

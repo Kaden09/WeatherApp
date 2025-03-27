@@ -10,7 +10,7 @@
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.03);
   transition: all 0.2s;
-  animation: fadeIn 1s;
+  animation: fadeIn 2s;
 
   &:hover {
     background: rgba(255,255,255,0.05)
@@ -46,7 +46,7 @@
 
 @keyframes fadeIn {
   0% {
-    transform: translateY(-20px);
+    transform: translateY(-30px);
     opacity: 0;
   }
   100% {
