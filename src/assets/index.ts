@@ -7,3 +7,5 @@ export { default as LocationIcon } from "./icons/LocationIcon.tsx";
 export { default as ClockIcon } from "./icons/ClockIcon.tsx";
 export { default as SunsetIcon } from "./icons/SunsetIcon.tsx";
 export { default as SunriseIcon } from "./icons/SunriseIcon.tsx";
+export { default as MoonsetIcon } from "./icons/MoonsetIcon.tsx";
+export { default as MoonriseIcon } from "./icons/MoonriseIcon.tsx";
