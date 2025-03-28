@@ -13,7 +13,7 @@
   animation: fadeIn 2s;
 
   &:hover {
-    background: rgba(255,255,255,0.05)
+    background: rgba(255, 255, 255, 0.05);
   }
 
   .date-info {
@@ -33,14 +33,6 @@
     justify-content: space-between;
     width: 80%;
     color: rgba(255, 255, 255, 0.5);
-
-    .degrees-value {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      line-height: 14px;
-    }
   }
 }
 

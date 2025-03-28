@@ -2,17 +2,11 @@ import styles from "./AdditionalInfoList.module.scss";
 import { IAdditionalInfoList } from "./AdditionalInfoList.interface.ts";
 import { useState, useEffect } from "react";
 import { AdditionalInfo, SkeletonLoader } from "../../shared/ui/index.ts";
+import { ADDITIONAL_INFO } from "./AdditionalInfo.const.ts";
 
-function AdditionalInfoList({ forecast, isLoading }: IAdditionalInfoList) {
-  const [info, setInfo] = useState<
-    { item: string; value: number; units: string }[]
-  >([
-    { item: "", value: 0, units: "" },
-    { item: "", value: 0, units: "" },
-    { item: "", value: 0, units: "" },
-    { item: "", value: 0, units: "" },
-    { item: "", value: 0, units: "" },
-  ]);
+function AdditionalInfoList({ forecast }: IAdditionalInfoList) {
+  const [info, setInfo] =
+    useState<{ item: string; value: number; units: string }[]>(ADDITIONAL_INFO);
 
   useEffect(() => {
     if (forecast !== undefined) {

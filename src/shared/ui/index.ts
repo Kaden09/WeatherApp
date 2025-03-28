@@ -8,3 +8,4 @@ export { default as Clock } from "./Clock/Clock.tsx";
 export { default as IconWithText } from "./IconWithText/IconWithText.tsx";
 export { default as BigDegrees } from "./BigDegrees/BigDegrees.tsx";
 export { default as SkeletonLoader } from "./SkeletonLoader/SkeletonLoader.tsx";
+export { default as CardDegrees } from "./CardDegrees/CardDegrees.tsx";

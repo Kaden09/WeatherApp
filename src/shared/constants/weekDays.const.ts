@@ -6,4 +6,4 @@ export const WEEK_DAYS = [
   "Thursday",
   "Friday",
   "Saturday",
-];
+] as const;

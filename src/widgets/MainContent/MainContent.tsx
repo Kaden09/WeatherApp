@@ -7,30 +7,24 @@ import {
 import { AdditionalInfoList } from "../index.ts";
 import { IMainContent } from "./MainContent.interface.ts";
 
-function MainContent({ data, isLoading }: IMainContent) {
+function MainContent({ forecast, isLoading }: IMainContent) {
+  const maxTemp = forecast && forecast[0].day.maxtemp_c;
+  const weatherCondition = forecast && forecast[0].day.condition.text;
+
   return (
     <main className={styles["main-content"]}>
       <BigDegrees
-        degrees={
-          data !== undefined
-            ? Math.round(data?.forecast.forecastday[0].day.maxtemp_c)
-            : 0
-        }
+        degrees={maxTemp ? Math.round(maxTemp) : 0}
         isLoading={isLoading}
       />
       <div className={styles.icon}>
         {isLoading ? (
           <SkeletonLoader width={200} height={99} />
         ) : (
-          <WeatherIcon
-            condition={data?.forecast.forecastday[0].day.condition.text || ""}
-          />
+          <WeatherIcon condition={weatherCondition || ""} />
         )}
       </div>
-      <AdditionalInfoList
-        forecast={data?.forecast.forecastday}
-        isLoading={isLoading}
-      />
+      <AdditionalInfoList forecast={forecast} />
     </main>
   );
 }

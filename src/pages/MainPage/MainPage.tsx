@@ -12,7 +12,10 @@ function MainPage() {
   return (
     <div className={styles.wrapper}>
       <MetaInfo data={data?.location} isLoading={isLoading} />
-      <MainContent data={data} isLoading={isLoading} />
+      <MainContent
+        forecast={data?.forecast.forecastday}
+        isLoading={isLoading}
+      />
       <AstroTimes
         data={data?.forecast.forecastday[0].astro}
         isLoading={isLoading}

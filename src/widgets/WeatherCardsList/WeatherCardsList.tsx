@@ -34,7 +34,7 @@ function WeatherCardsList({
     return (
       <div className={styles.list}>
         {weekDaysOrder.map((el) => (
-          <SkeletonLoader width={103} height={160} />
+          <SkeletonLoader key={el} width={103} height={160} />
         ))}
       </div>
     );
@@ -52,6 +52,7 @@ function WeatherCardsList({
             dayDegrees={Math.round(forecast[i].day.maxtemp_c)}
             nightDegrees={Math.round(forecast[i].day.mintemp_c)}
             weather={<WeatherIcon condition={forecast[i].day.condition.text} />}
+            isToday={new Date().getDay() === el}
           />
         ))}
     </div>
