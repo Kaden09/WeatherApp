@@ -1,11 +1,16 @@
-interface IAstro {
+export interface ILocation {
+  name: string;
+  tz_id: string;
+}
+
+export interface IAstro {
   sunrise: string;
   sunset: string;
   moonrise: string;
   moonset: string;
 }
 
-interface IDay {
+export interface IDay {
   maxtemp_c: number;
   mintemp_c: number;
   maxwind_kph: number;
@@ -17,14 +22,14 @@ interface IDay {
   };
 }
 
-interface IHour {
+export interface IHour {
   cloud: number;
   feelslike_c: number;
   chance_of_rain: number;
   chance_of_snow: number;
 }
 
-interface IForecast {
+export interface IForecast {
   date: string;
   day: IDay;
   astro: IAstro;
@@ -32,10 +37,7 @@ interface IForecast {
 }
 
 export interface IWeather {
-  location: {
-    name: string;
-    tz_id: string;
-  };
+  location: ILocation;
   forecast: {
     forecastday: IForecast[];
   };

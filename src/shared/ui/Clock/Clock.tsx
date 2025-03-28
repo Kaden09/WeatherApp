@@ -1,13 +1,12 @@
 import styles from "./Clock.module.scss";
 import { useState, useEffect, useMemo } from "react";
 import { Title } from "../index.ts";
-import { useWeather } from "../../../features/weather/index.ts";
+import { IClock } from "./Clock.interface.ts";
 
-function Clock() {
-  const { data } = useWeather();
+function Clock({ data }: IClock) {
   const [time, setTime] = useState<string>("00:00");
 
-  const timeZone = useMemo(() => data?.location?.tz_id, [data]);
+  const timeZone = useMemo(() => data?.tz_id, [data]);
 
   useEffect(() => {
     if (!timeZone) return;

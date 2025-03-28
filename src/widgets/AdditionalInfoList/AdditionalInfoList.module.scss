@@ -1,8 +1,16 @@
 .additional-info-list {
   display: flex;
   flex-direction: column;
+  gap:5px;
+  justify-content: center;
   align-items: end;
   animation: fadeIn 2s;
+
+  .loader {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
 }
 
 @keyframes fadeIn {

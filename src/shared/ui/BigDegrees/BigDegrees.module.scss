@@ -1,6 +1,7 @@
 .big-degrees {
   display: flex;
   align-items: start;
+  gap: 3px;
   animation: fadeIn 2s;
 
   .degrees {
@@ -9,7 +10,6 @@
 
   .celsius {
     font-size: 50px;
-    margin-top: 30px;
   }
 }
 

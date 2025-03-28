@@ -6,9 +6,10 @@
   width: 100%;
 
   .icon {
+    display: flex;
+    justify-content: center;
     width: 30%;
-    margin-top: 30px;
-  animation: fadeIn 2s;
+    animation: fadeIn 2s;
   }
 }
 

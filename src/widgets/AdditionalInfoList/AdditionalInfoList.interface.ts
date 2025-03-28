@@ -1,5 +1,6 @@
-import {IWeather} from "../../entities/weather/types/weather.interface.ts";
+import { IForecast } from "../../entities/weather/index.ts";
 
 export interface IAdditionalInfoList {
-	data: IWeather;
+  forecast: IForecast[] | undefined;
+	isLoading: boolean;
 }

@@ -1,16 +1,21 @@
 import styles from "./AdditionalInfoList.module.scss";
 import { IAdditionalInfoList } from "./AdditionalInfoList.interface.ts";
 import { useState, useEffect } from "react";
-import { AdditionalInfo } from "../../shared/ui/index.ts";
+import { AdditionalInfo, SkeletonLoader } from "../../shared/ui/index.ts";
 
-function AdditionalInfoList({ data }: IAdditionalInfoList) {
+function AdditionalInfoList({ forecast, isLoading }: IAdditionalInfoList) {
   const [info, setInfo] = useState<
     { item: string; value: number; units: string }[]
-  >([]);
-  const forecast = data?.forecast.forecastday || [];
+  >([
+    { item: "", value: 0, units: "" },
+    { item: "", value: 0, units: "" },
+    { item: "", value: 0, units: "" },
+    { item: "", value: 0, units: "" },
+    { item: "", value: 0, units: "" },
+  ]);
 
   useEffect(() => {
-    if (data !== undefined) {
+    if (forecast !== undefined) {
       setInfo([
         { item: "Wind", value: forecast[0].day.maxwind_kph, units: "km/h" },
         {
@@ -27,18 +32,25 @@ function AdditionalInfoList({ data }: IAdditionalInfoList) {
         },
       ]);
     }
-  }, [data]);
+  }, [forecast]);
 
   return (
     <div className={styles["additional-info-list"]}>
-      {info.map((el, i) => (
-        <AdditionalInfo
-          key={i}
-          item={el.item}
-          value={el.value}
-          units={el.units}
-        />
-      ))}
+      {info.map((el, i) =>
+        forecast ? (
+          <AdditionalInfo
+            key={i}
+            item={el.item}
+            value={el.value}
+            units={el.units}
+          />
+        ) : (
+          <div className={styles.loader}>
+            <SkeletonLoader width={80} height={15} />
+            <SkeletonLoader width={50} height={15} />
+          </div>
+        ),
+      )}
     </div>
   );
 }
