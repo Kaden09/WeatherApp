@@ -18,7 +18,6 @@ export function getDifference(astro: IAstro, theme: string) {
     let sunrise = new Date(`2000-01-01T${convertTime(astro.sunrise)}`);
     let moonset = new Date(`2000-01-01T${convertTime(astro.moonset)}`);
     let moonrise = new Date(`2000-01-01T${convertTime(astro.moonrise)}`);
-    alert(convertTime(astro.moonrise));
     return theme === "dark"
       ? moonset.getTime() - moonrise.getTime()
       : sunset.getTime() - sunrise.getTime();
