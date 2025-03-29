@@ -6,62 +6,35 @@ import { IAstroTimes } from "./AstroTimes.interface.ts";
 import { useSetAtom, useAtomValue } from "jotai";
 import { timeAtom } from "../../shared/store/timeAtom.ts";
 import { themeAtom } from "../../shared/store/themeAtom.ts";
+import {
+  convertTime,
+  getDifference,
+  compareTimes,
+} from "./AstroTimes.utils.ts";
 
-function AstroTimes({ data, isLoading }: IAstroTimes) {
+function AstroTimes({ astro, isLoading }: IAstroTimes) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const time = useAtomValue(timeAtom);
   const setTheme = useSetAtom(themeAtom);
 
-  function convertTime(time12h: string) {
-    const [time, modifier] = time12h.split(" ");
-    let [hours, minutes] = time.split(":");
-
-    if (hours === "12") {
-      hours = modifier === "AM" ? "00" : "12";
-    } else if (modifier === "PM") {
-      hours = String(parseInt(hours, 10) + 12);
-    }
-
-    return `${hours}:${minutes}`;
-  }
-
-  function getDifference() {
-    if (data) {
-      let sunset = new Date(`2000-01-01T${convertTime(data.sunset)}`);
-      let sunrise = new Date(`2000-01-01T${convertTime(data.sunrise)}`);
-      return sunset.getTime() - sunrise.getTime();
-    }
-  }
-
-  function compareTimes(time1: string, time2: string, less: boolean) {
-    const [hours1, minutes1] = time1.split(":").map(Number);
-    const [hours2, minutes2] = time2.split(":").map(Number);
-
-    const date1 = new Date().setHours(hours1, minutes1, 0, 0);
-    const date2 = new Date().setHours(hours2, minutes2, 0, 0);
-
-    return less ? date1 < date2 : date1 > date2;
-  }
-
   useEffect(() => {
-    if (data) {
-      let diff = getDifference();
+    if (astro) {
+      let diff = getDifference(astro);
+      if (diff) {
+        setHours(diff / (1000 * 60 * 60));
+        setMinutes((diff % (1000 * 60 * 60)) / (1000 * 60));
+      }
       if (
-        compareTimes(convertTime(data.sunrise), time, true) ||
-        compareTimes(convertTime(data.sunset), time, false)
+        compareTimes(convertTime(astro.sunrise), time, true) ||
+        compareTimes(convertTime(astro.sunset), time, false)
       ) {
         setTheme("light");
       } else {
         setTheme("dark");
       }
-
-      if (diff) {
-        setHours(diff / (1000 * 60 * 60));
-        setMinutes((diff % (1000 * 60 * 60)) / (1000 * 60));
-      }
     }
-  }, [data]);
+  }, [astro]);
 
   return (
     <div className={styles["astro-times"]}>
@@ -77,7 +50,7 @@ function AstroTimes({ data, isLoading }: IAstroTimes) {
         {isLoading ? (
           <SkeletonLoader width={90} height={26} />
         ) : (
-          <Title size="middle">{data?.sunrise}</Title>
+          <Title size="middle">{astro?.sunrise}</Title>
         )}
       </IconWithText>
       <div className={styles["dotted-line"]}></div>
@@ -99,7 +72,7 @@ function AstroTimes({ data, isLoading }: IAstroTimes) {
         {isLoading ? (
           <SkeletonLoader width={70} height={26} />
         ) : (
-          <Title size="middle">{data?.sunset}</Title>
+          <Title size="middle">{astro?.sunset}</Title>
         )}
       </IconWithText>
     </div>

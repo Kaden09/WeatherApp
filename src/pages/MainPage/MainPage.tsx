@@ -17,7 +17,7 @@ function MainPage() {
         isLoading={isLoading}
       />
       <AstroTimes
-        data={data?.forecast.forecastday[0].astro}
+        astro={data?.forecast.forecastday[0].astro}
         isLoading={isLoading}
       />
       <WeatherCardsList
