@@ -3,10 +3,15 @@ import { IconWithText, Title, SkeletonLoader } from "../../shared/ui/index.ts";
 import { SunriseIcon, SunsetIcon } from "../../assets/index.ts";
 import { useEffect, useState } from "react";
 import { IAstroTimes } from "./AstroTimes.interface.ts";
+import { useSetAtom, useAtomValue } from "jotai";
+import { timeAtom } from "../../shared/store/timeAtom.ts";
+import { themeAtom } from "../../shared/store/themeAtom.ts";
 
 function AstroTimes({ data, isLoading }: IAstroTimes) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
+  const time = useAtomValue(timeAtom);
+  const setTheme = useSetAtom(themeAtom);
 
   function convertTime(time12h: string) {
     const [time, modifier] = time12h.split(" ");
@@ -22,17 +27,36 @@ function AstroTimes({ data, isLoading }: IAstroTimes) {
   }
 
   function getDifference() {
-    if (data !== undefined) {
+    if (data) {
       let sunset = new Date(`2000-01-01T${convertTime(data.sunset)}`);
       let sunrise = new Date(`2000-01-01T${convertTime(data.sunrise)}`);
       return sunset.getTime() - sunrise.getTime();
     }
   }
 
+  function compareTimes(time1: string, time2: string, less: boolean) {
+    const [hours1, minutes1] = time1.split(":").map(Number);
+    const [hours2, minutes2] = time2.split(":").map(Number);
+
+    const date1 = new Date().setHours(hours1, minutes1, 0, 0);
+    const date2 = new Date().setHours(hours2, minutes2, 0, 0);
+
+    return less ? date1 < date2 : date1 > date2;
+  }
+
   useEffect(() => {
-    if (data !== undefined) {
+    if (data) {
       let diff = getDifference();
-      if (diff !== undefined) {
+      if (
+        compareTimes(convertTime(data.sunrise), time, true) ||
+        compareTimes(convertTime(data.sunset), time, false)
+      ) {
+        setTheme("light");
+      } else {
+        setTheme("dark");
+      }
+
+      if (diff) {
         setHours(diff / (1000 * 60 * 60));
         setMinutes((diff % (1000 * 60 * 60)) / (1000 * 60));
       }
