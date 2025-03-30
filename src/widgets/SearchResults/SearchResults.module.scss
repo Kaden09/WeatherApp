@@ -1,0 +1,49 @@
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 15px;
+  width: 300px;
+  backdrop-filter: blur(8px);
+  transition: all 0.4s;
+  animation: fadeIn 1s;
+
+  .result {
+    list-style: none;
+    color: #fff;
+    background: var(--results-background-color);
+    backdrop-filter: blur(4px);
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    transition: all 0.4s;
+    animation: fadeIn 1s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .city-name {
+      font-weight: 500;
+      line-height: 1.2;
+      white-space: normal;
+    }
+  }
+
+  .loading, .no-results{
+    margin: 15px 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

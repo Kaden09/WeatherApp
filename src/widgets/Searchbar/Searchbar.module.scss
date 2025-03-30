@@ -1,20 +1,32 @@
+.searchbar-container {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
 .searchbar {
   font-size: 14px;
   background: rgba(255, 255, 255, 0.05);
   border: none;
-  border-radius: 30px;
+  border-radius: 15px;
   width: 300px;
   color: rgba(255, 255, 255, 0.5);
   padding: 10px 15px;
   outline: none;
   transition: all 0.2s;
-}
 
-.searchbar::placeholder {
-  color: rgba(255, 255, 255, 0.4);
-}
+  &::placeholder {
+    color: rgba(255,255,255,0.4);
+  }
 
-.searchbar:focus {
+  &:focus {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
+  }
+}
+
+.search-results {
+  position: absolute;
+  top: 45px;
+  display: none;
 }

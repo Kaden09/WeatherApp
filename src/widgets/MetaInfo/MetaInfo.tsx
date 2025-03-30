@@ -1,6 +1,7 @@
 import styles from "./MetaInfo.module.scss";
-import { Location, RealTimeClock, Searchbar } from "../../shared/ui/index.ts";
+import { Location, RealTimeClock } from "../../shared/ui/index.ts";
 import { IMetaInfo } from "./MetaInfo.interface.ts";
+import { Searchbar } from "../index.ts";
 
 function MetaInfo({ data, isLoading }: IMetaInfo) {
   return (

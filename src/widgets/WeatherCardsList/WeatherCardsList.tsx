@@ -14,7 +14,6 @@ function WeatherCardsList({
   const [weekDaysOrder, setWeekDaysOrder] = useState<number[]>([
     0, 1, 2, 3, 4, 5, 6,
   ]);
-  const setCity = useSetAtom(cityAtom);
 
   useEffect(() => {
     const currentDay = new Date().getDay();
@@ -23,12 +22,6 @@ function WeatherCardsList({
       ...weekDaysOrder.slice(0, currentDay),
     ]);
   }, []);
-
-  useEffect(() => {
-    if (location !== undefined) {
-      setCity(location.name + ", " + location.tz_id.split("/")[0]);
-    }
-  }, [location]);
 
   if (isLoading) {
     return (
