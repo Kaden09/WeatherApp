@@ -1,11 +1,11 @@
 import styles from "./NightIcons.module.scss";
 
-function NightCloudIcon() {
+function NightPartlyCloudIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 18">
-      <mask id="moon-mask">
+      <mask id="cloud-moon-mask">
         <rect width="100%" height="100%" fill="#fff" />
-        <circle cx="20" cy="2" r="3" fill="#000" />
+        <circle cx="19" cy="2.8" r="3" fill="#000" />
         <g>
           <circle cx="8.5" cy="13.5" r="5.5" />
           <circle cx="12" cy="12" r="7" />
@@ -14,7 +14,7 @@ function NightCloudIcon() {
         </g>
       </mask>
       <circle
-        mask="url(#moon-mask)"
+        mask="url(#cloud-moon-mask)"
         cx="16.5"
         cy="6"
         r="4.5"
@@ -38,4 +38,4 @@ function NightCloudIcon() {
   );
 }
 
-export default NightCloudIcon;
+export default NightPartlyCloudIcon;

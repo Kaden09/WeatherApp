@@ -8,7 +8,8 @@ import {
   LightRainIcon,
   DrizzleRainIcon,
   LightningIcon,
-  NightCloudIcon,
+  NightPartlyCloudyIcon,
+  NightCloudyIcon,
   OvercastIcon,
 } from "../../../assets/index.ts";
 import { IWeatherIcon } from "./WeatherIcon.interface.ts";
@@ -24,15 +25,15 @@ import {
 function WeatherIcon({ condition }: IWeatherIcon) {
   const theme = useAtomValue(themeAtom);
   const lowCondition = condition.toLowerCase().trim();
-
+  alert(lowCondition);
   if (lowCondition === "sunny" || lowCondition === "clear") {
     return theme === "dark" ? <MoonIcon /> : <SunIcon />;
   } else if (lowCondition === "partly cloudy") {
-    return <PartlyCloudyIcon />;
+    return theme === "dark" ? <NightPartlyCloudyIcon /> : <PartlyCloudyIcon />;
   } else if (lowCondition === "overcast") {
     return <OvercastIcon />;
   } else if (lowCondition === "cloudy") {
-    return theme === "dark" ? <NightCloudIcon /> : <CloudIcon />;
+    return theme === "dark" ? <NightCloudyIcon /> : <CloudIcon />;
   } else if (HEAVY_RAIN.includes(lowCondition)) {
     return <HeavyRainIcon />;
   } else if (MODERATE_RAIN.includes(lowCondition)) {
