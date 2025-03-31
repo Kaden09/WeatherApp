@@ -3,6 +3,8 @@
 }
 export { default as HeavyRainIcon } from "./icons/RainIcons/HeavyRainIcon.tsx";
 export { default as ModerateRainIcon } from "./icons/RainIcons/ModerateRainIcon.tsx";
+export { default as LightRainIcon } from "./icons/RainIcons/LightRainIcon.tsx";
+export { default as DrizzleRainIcon } from "./icons/RainIcons/DrizzleRainIcon.tsx";
 
 {
   /* ASTRO ICONS */

@@ -14,6 +14,7 @@ export const LIGHT_RAIN = [
   "light rain",
   "patchy light rain",
   "light freezing rain",
+  "patchy rain nearby",
 ];
 export const DRIZZLE_RAIN = [
   "patchy rain possible",
