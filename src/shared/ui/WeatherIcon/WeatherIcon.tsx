@@ -1,6 +1,7 @@
 import {
   PartlyCloudyIcon,
   SunIcon,
+  MoonIcon,
   CloudIcon,
   HeavyRainIcon,
   ModerateRainIcon,
@@ -23,9 +24,9 @@ import {
 function WeatherIcon({ condition }: IWeatherIcon) {
   const theme = useAtomValue(themeAtom);
   const lowCondition = condition.toLowerCase().trim();
-  alert(lowCondition);
-  if (lowCondition === "sunny") {
-    return <SunIcon />;
+
+  if (lowCondition === "sunny" || lowCondition === "clear") {
+    return theme === "dark" ? <MoonIcon /> : <SunIcon />;
   } else if (lowCondition === "partly cloudy") {
     return <PartlyCloudyIcon />;
   } else if (lowCondition === "overcast") {

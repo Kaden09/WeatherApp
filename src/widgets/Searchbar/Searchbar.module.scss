@@ -2,6 +2,7 @@
   position: relative;
   z-index: 1;
   overflow: visible;
+  animation: fadeIn 2s;
 }
 
 .searchbar {
@@ -29,4 +30,15 @@
   position: absolute;
   top: 45px;
   display: none;
+}
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+    transform: scale(0.7)
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
 }
