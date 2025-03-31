@@ -1,4 +1,5 @@
 import {
+  PartlyCloudyIcon,
   SunIcon,
   CloudIcon,
   RainIcon,
@@ -13,7 +14,9 @@ function WeatherIcon({ condition }: IWeatherIcon) {
   const theme = useAtomValue(themeAtom);
   if (condition.toLowerCase().includes("sun")) {
     return <SunIcon />;
-  } else if (condition.toLowerCase().includes("cloud")) {
+  } else if (condition.toLowerCase().trim() === "partly cloudy") {
+    return <PartlyCloudyIcon />;
+  } else if (condition.toLowerCase().trim() === "cloudy") {
     return theme === "dark" ? <NightIcon /> : <CloudIcon />;
   } else if (condition.toLowerCase().includes("rain")) {
     return <RainIcon />;

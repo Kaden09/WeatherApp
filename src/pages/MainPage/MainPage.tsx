@@ -21,7 +21,6 @@ function MainPage() {
         isLoading={isLoading}
       />
       <WeatherCardsList
-        location={data?.location}
         forecast={data?.forecast.forecastday}
         isLoading={isLoading}
       />

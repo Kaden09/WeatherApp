@@ -20,7 +20,9 @@ function Location({ isLoading, className }: ILocation) {
       {isLoading ? (
         <SkeletonLoader width={130} height={26} />
       ) : (
-        <Title size="large">{city}</Title>
+        <Title size="large" className={styles["city-name"]}>
+          {city}
+        </Title>
       )}
     </IconWithText>
   );

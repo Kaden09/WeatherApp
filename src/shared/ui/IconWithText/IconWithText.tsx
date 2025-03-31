@@ -6,7 +6,7 @@ function IconWithText({ icon, children, className }: IIconWithText) {
   const cls = cx(styles["icon-with-text"], className);
   return (
     <div className={cls}>
-      {icon}
+      <div className={styles.icon}>{icon}</div>
       {children}
     </div>
   );

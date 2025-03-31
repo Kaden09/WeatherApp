@@ -6,7 +6,7 @@ import { SearchResults } from "../index.ts";
 function Searchbar() {
   const [value, setValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
-  const { data, isLoading, error } = useSearchCities(debouncedValue);
+  const { data, isLoading } = useSearchCities(debouncedValue);
   const [focus, setFocus] = useState(false);
 
   useEffect(() => {

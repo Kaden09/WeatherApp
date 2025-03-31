@@ -1,3 +1,9 @@
 .location {
   display: flex;
+  max-width: 250px;
+
+  .city-name {
+    white-space: normal;
+    line-height: 1.2;
+  }
 }

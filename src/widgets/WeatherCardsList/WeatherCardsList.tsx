@@ -2,15 +2,9 @@ import styles from "./WeatherCardsList.module.scss";
 import { useState, useEffect } from "react";
 import { WeatherCard } from "../index.ts";
 import { WeatherIcon, SkeletonLoader } from "../../shared/ui/index.ts";
-import { useSetAtom } from "jotai";
-import { cityAtom } from "../../shared/store/weatherAtoms.ts";
 import { IWeatherCardsList } from "./WeatherCardsList.interface.ts";
 
-function WeatherCardsList({
-  location,
-  forecast,
-  isLoading,
-}: IWeatherCardsList) {
+function WeatherCardsList({ forecast, isLoading }: IWeatherCardsList) {
   const [weekDaysOrder, setWeekDaysOrder] = useState<number[]>([
     0, 1, 2, 3, 4, 5, 6,
   ]);
