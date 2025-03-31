@@ -2,7 +2,7 @@ import {
   PartlyCloudyIcon,
   SunIcon,
   CloudIcon,
-  RainIcon,
+  HeavyRainIcon,
   LightningIcon,
   NightIcon,
 } from "../../../assets/index.ts";
@@ -19,7 +19,7 @@ function WeatherIcon({ condition }: IWeatherIcon) {
   } else if (condition.toLowerCase().trim() === "cloudy") {
     return theme === "dark" ? <NightIcon /> : <CloudIcon />;
   } else if (condition.toLowerCase().includes("rain")) {
-    return <RainIcon />;
+    return <HeavyRainIcon />;
   } else if (condition.toLowerCase().includes("thunder")) {
     return <LightningIcon />;
   }

@@ -1,6 +1,6 @@
-import styles from "./RainIcon.module.scss";
+import styles from "./HeavyRainIcon.module.scss";
 
-function RainIcon() {
+function HeavyRainIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="90%" viewBox="0 0 24 18">
       <g fill="#fefefc">
@@ -19,4 +19,4 @@ function RainIcon() {
   );
 }
 
-export default RainIcon;
+export default HeavyRainIcon;
