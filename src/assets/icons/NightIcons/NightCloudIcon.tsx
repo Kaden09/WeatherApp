@@ -1,6 +1,6 @@
-import styles from "./NightIcon.module.scss";
+import styles from "./NightIcons.module.scss";
 
-function NightIcon() {
+function NightCloudIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 18">
       <mask id="moon-mask">
@@ -38,4 +38,4 @@ function NightIcon() {
   );
 }
 
-export default NightIcon;
+export default NightCloudIcon;

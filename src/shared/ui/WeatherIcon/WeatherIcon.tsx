@@ -4,7 +4,7 @@ import {
   CloudIcon,
   HeavyRainIcon,
   LightningIcon,
-  NightIcon,
+  NightCloudIcon,
 } from "../../../assets/index.ts";
 import { IWeatherIcon } from "./WeatherIcon.interface.ts";
 import { useAtomValue } from "jotai";
@@ -17,7 +17,7 @@ function WeatherIcon({ condition }: IWeatherIcon) {
   } else if (condition.toLowerCase().trim() === "partly cloudy") {
     return <PartlyCloudyIcon />;
   } else if (condition.toLowerCase().trim() === "cloudy") {
-    return theme === "dark" ? <NightIcon /> : <CloudIcon />;
+    return theme === "dark" ? <NightCloudIcon /> : <CloudIcon />;
   } else if (condition.toLowerCase().includes("rain")) {
     return <HeavyRainIcon />;
   } else if (condition.toLowerCase().includes("thunder")) {
