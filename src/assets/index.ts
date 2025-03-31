@@ -20,6 +20,7 @@ export { default as MoonriseIcon } from "./icons/MoonriseIcon.tsx";
 export { default as PartlyCloudyIcon } from "./icons/PartlyCloudyIcon.tsx";
 export { default as CloudIcon } from "./icons/CloudIcon.tsx";
 export { default as NightCloudIcon } from "./icons/NightIcons/NightCloudIcon.tsx";
+export { default as OvercastIcon } from "./icons/OvercastIcon.tsx";
 
 {
   /* META ICONS */
