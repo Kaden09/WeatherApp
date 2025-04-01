@@ -1,19 +1,15 @@
 import styles from "./MainContent.module.scss";
-import {
-  BigDegrees,
-  WeatherIcon,
-  SkeletonLoader,
-} from "../../shared/ui/index.ts";
+import { BigDegrees, WeatherIcon } from "../../shared/ui/index.ts";
 import { AdditionalInfoList } from "../index.ts";
 import { IMainContent } from "./MainContent.interface.ts";
 
 function MainContent({ forecast }: IMainContent) {
-  const maxTemp = forecast && forecast[0].day.maxtemp_c;
-  const weatherCondition = forecast && forecast[0].day.condition.text;
+  const currentTemp = forecast && forecast[0].hour[0].temp_c;
+  const weatherCondition = forecast && forecast[0].hour[0].condition.text;
 
   return (
     <main className={styles["main-content"]}>
-      <BigDegrees degrees={maxTemp ? Math.round(maxTemp) : 0} />
+      <BigDegrees degrees={currentTemp ? Math.round(currentTemp) : 0} />
       <div className={styles.icon}>
         <WeatherIcon condition={weatherCondition || ""} isToday={true} />
       </div>

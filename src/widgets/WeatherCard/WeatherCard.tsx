@@ -24,7 +24,7 @@ function WeatherCard({
         </Text>
       </div>
       <div className={styles["weather-icon"]}>{weather}</div>
-      {theme === "dark" ? (
+      {theme === "dark" && isToday ? (
         <div className={styles.degrees}>
           <CardDegrees degrees={nightDegrees} color="primary" time="night" />
           <CardDegrees degrees={dayDegrees} color="secondary" time="day" />

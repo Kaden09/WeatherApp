@@ -24,9 +24,13 @@ export interface IDay {
 
 export interface IHour {
   cloud: number;
+  temp_c: number;
   feelslike_c: number;
   chance_of_rain: number;
   chance_of_snow: number;
+  condition: {
+    text: string;
+  };
 }
 
 export interface IForecast {
