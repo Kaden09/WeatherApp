@@ -1,6 +1,3 @@
-import { atom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 
-const currentDate = new Date();
-export const timeAtom = atom<string>(
-  currentDate.getHours() + ":" + currentDate.getMinutes(),
-);
+export const timeAtom = atomWithStorage<string>("time", "00:00");

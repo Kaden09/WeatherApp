@@ -31,15 +31,15 @@ function AstroTimes({ astro, isLoading }: IAstroTimes) {
         setMinutes((diff % (1000 * 60 * 60)) / (1000 * 60));
       }
       if (
-        compareTimes(convertTime(astro.sunrise), time, true) &&
-        compareTimes(convertTime(astro.sunset), time, false)
+        compareTimes(convertTime(astro.sunrise), convertTime(time), true) &&
+        compareTimes(convertTime(astro.sunset), convertTime(time), false)
       ) {
         setTheme("light");
       } else {
         setTheme("dark");
       }
     }
-  }, [astro]);
+  }, [astro, time]);
 
   return (
     <div className={styles["astro-times"]}>

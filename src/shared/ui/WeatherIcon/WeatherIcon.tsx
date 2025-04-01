@@ -25,7 +25,6 @@ import {
 function WeatherIcon({ condition }: IWeatherIcon) {
   const theme = useAtomValue(themeAtom);
   const lowCondition = condition.toLowerCase().trim();
-  alert(lowCondition);
   if (lowCondition === "sunny" || lowCondition === "clear") {
     return theme === "dark" ? <MoonIcon /> : <SunIcon />;
   } else if (lowCondition === "partly cloudy") {

@@ -1,10 +1,12 @@
 import styles from "./Clock.module.scss";
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Title } from "../index.ts";
 import { IClock } from "./Clock.interface.ts";
+import { useAtom } from "jotai";
+import { timeAtom } from "../../store/timeAtom.ts";
 
 function Clock({ data }: IClock) {
-  const [time, setTime] = useState<string>("00:00");
+  const [time, setTime] = useAtom(timeAtom);
 
   const timeZone = useMemo(() => data?.tz_id, [data]);
 
