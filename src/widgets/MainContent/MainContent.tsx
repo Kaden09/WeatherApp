@@ -21,7 +21,7 @@ function MainContent({ forecast, isLoading }: IMainContent) {
         {isLoading ? (
           <SkeletonLoader width={200} height={99} />
         ) : (
-          <WeatherIcon condition={weatherCondition || ""} />
+          <WeatherIcon condition={weatherCondition || ""} isToday={true} />
         )}
       </div>
       <AdditionalInfoList forecast={forecast} />

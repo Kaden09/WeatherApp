@@ -38,7 +38,12 @@ function WeatherCardsList({ forecast, isLoading }: IWeatherCardsList) {
             month={new Date(forecast[i].date).getMonth()}
             dayDegrees={Math.round(forecast[i].day.maxtemp_c)}
             nightDegrees={Math.round(forecast[i].day.mintemp_c)}
-            weather={<WeatherIcon condition={forecast[i].day.condition.text} />}
+            weather={
+              <WeatherIcon
+                condition={forecast[i].day.condition.text}
+                isToday={i === 0}
+              />
+            }
             isToday={new Date().getDay() === el}
           />
         ))}

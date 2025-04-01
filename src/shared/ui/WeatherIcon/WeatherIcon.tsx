@@ -22,17 +22,21 @@ import {
   DRIZZLE_RAIN,
 } from "./WeatherIcon.const.ts";
 
-function WeatherIcon({ condition }: IWeatherIcon) {
+function WeatherIcon({ condition, isToday }: IWeatherIcon) {
   const theme = useAtomValue(themeAtom);
   const lowCondition = condition.toLowerCase().trim();
   if (lowCondition === "sunny" || lowCondition === "clear") {
-    return theme === "dark" ? <MoonIcon /> : <SunIcon />;
+    return isToday && theme === "dark" ? <MoonIcon /> : <SunIcon />;
   } else if (lowCondition === "partly cloudy") {
-    return theme === "dark" ? <NightPartlyCloudyIcon /> : <PartlyCloudyIcon />;
+    return isToday && theme === "dark" ? (
+      <NightPartlyCloudyIcon />
+    ) : (
+      <PartlyCloudyIcon />
+    );
   } else if (lowCondition === "overcast") {
     return <OvercastIcon />;
   } else if (lowCondition === "cloudy") {
-    return theme === "dark" ? <NightCloudyIcon /> : <CloudIcon />;
+    return isToday && theme === "dark" ? <NightCloudyIcon /> : <CloudIcon />;
   } else if (HEAVY_RAIN.includes(lowCondition)) {
     return <HeavyRainIcon />;
   } else if (MODERATE_RAIN.includes(lowCondition)) {
