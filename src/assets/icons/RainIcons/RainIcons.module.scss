@@ -14,6 +14,14 @@
   animation: rain 1.9s infinite ease-in-out;
 }
 
+.big-star {
+  animation: levitation 3s infinite ease-in-out;
+}
+
+.small-star {
+  animation: levitation 2.5s infinite ease-in-out;
+}
+
 @keyframes rain {
   0% {
     transform: translate(0);
@@ -23,5 +31,17 @@
   }
   100% {
     transform: translate(0);
+  }
+}
+
+@keyframes levitation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.3px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

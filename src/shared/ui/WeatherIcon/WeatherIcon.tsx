@@ -10,6 +10,10 @@ import {
   LightningIcon,
   NightPartlyCloudyIcon,
   NightCloudyIcon,
+  NightHeavyRainIcon,
+  NightModerateRainIcon,
+  NightLightRainIcon,
+  NightDrizzleRainIcon,
   OvercastIcon,
 } from "../../../assets/index.ts";
 import { IWeatherIcon } from "./WeatherIcon.interface.ts";
@@ -38,13 +42,25 @@ function WeatherIcon({ condition, isToday }: IWeatherIcon) {
   } else if (lowCondition === "cloudy") {
     return isToday && theme === "dark" ? <NightCloudyIcon /> : <CloudIcon />;
   } else if (HEAVY_RAIN.includes(lowCondition)) {
-    return <HeavyRainIcon />;
+    return isToday && theme === "dark" ? (
+      <NightHeavyRainIcon />
+    ) : (
+      <HeavyRainIcon />
+    );
   } else if (MODERATE_RAIN.includes(lowCondition)) {
-    return <ModerateRainIcon />;
+    return isToday && theme === "dark" ? (
+      <NightModerateRainIcon />
+    ) : (
+      <ModerateRainIcon />
+    );
   } else if (LIGHT_RAIN.includes(lowCondition)) {
-    return <LightRainIcon />;
+    return isToday && theme === "dark" ? (
+      <NightLightRainIcon />
+    ) : (
+      <LightRainIcon />
+    );
   } else if (DRIZZLE_RAIN.includes(lowCondition)) {
-    return <DrizzleRainIcon />;
+    return isToday ? <NightDrizzleRainIcon /> : <DrizzleRainIcon />;
   } else if (condition.toLowerCase().includes("thunder")) {
     return <LightningIcon />;
   }

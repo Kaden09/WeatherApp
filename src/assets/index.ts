@@ -33,6 +33,10 @@ export { default as ClockIcon } from "./icons/ClockIcon.tsx";
 export { default as MoonIcon } from "./icons/NightIcons/MoonIcon.tsx";
 export { default as NightPartlyCloudyIcon } from "./icons/NightIcons/NightPartlyCloudyIcon.tsx";
 export { default as NightCloudyIcon } from "./icons/NightIcons/NightCloudyIcon.tsx";
+export { default as NightHeavyRainIcon } from "./icons/NightIcons/NightHeavyRainIcon.tsx";
+export { default as NightModerateRainIcon } from "./icons/NightIcons/NightModerateRainIcon.tsx";
+export { default as NightLightRainIcon } from "./icons/NightIcons/NightLightRainIcon.tsx";
+export { default as NightDrizzleRainIcon } from "./icons/NightIcons/NightDrizzleRainIcon.tsx";
 
 export { default as SunIcon } from "./icons/SunIcon.tsx";
 export { default as LightningIcon } from "./icons/LightningIcon.tsx";
