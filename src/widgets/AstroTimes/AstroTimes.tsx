@@ -16,11 +16,13 @@ import {
   getDifference,
   compareTimes,
 } from "./AstroTimes.utils.ts";
+import { isLoadingAtom  } from "../../shared/store/weatherAtoms.ts";
 
-function AstroTimes({ astro, isLoading }: IAstroTimes) {
+function AstroTimes({ astro }: IAstroTimes) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const time = useAtomValue(timeAtom);
+	const isLoading = useAtomValue(isLoadingAtom)
   const [theme, setTheme] = useAtom(themeAtom);
 
   useEffect(() => {

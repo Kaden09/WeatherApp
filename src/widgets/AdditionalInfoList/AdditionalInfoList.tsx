@@ -9,7 +9,7 @@ function AdditionalInfoList({ forecast }: IAdditionalInfoList) {
     useState<{ item: string; value: number; units: string }[]>(ADDITIONAL_INFO);
 
   useEffect(() => {
-    if (forecast !== undefined) {
+    if (forecast) {
       setInfo([
         { item: "Wind", value: forecast[0].day.maxwind_kph, units: "km/h" },
         {

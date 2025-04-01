@@ -2,8 +2,12 @@ import styles from "./BigDegrees.module.scss";
 import { IBigDegrees } from "./BigDegrees.interface.ts";
 import { Title } from "../index.ts";
 import { SkeletonLoader } from "../index.ts";
+import { isLoadingAtom } from "../../store/weatherAtoms.ts";
+import { useAtomValue } from "jotai";
 
-function BigDegrees({ degrees, isLoading }: IBigDegrees) {
+function BigDegrees({ degrees }: IBigDegrees) {
+  const isLoading = useAtomValue(isLoadingAtom);
+
   return (
     <>
       {isLoading ? (

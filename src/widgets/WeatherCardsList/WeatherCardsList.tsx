@@ -3,10 +3,13 @@ import { useState, useEffect } from "react";
 import { WeatherCard } from "../index.ts";
 import { WeatherIcon, SkeletonLoader } from "../../shared/ui/index.ts";
 import { IWeatherCardsList } from "./WeatherCardsList.interface.ts";
+import { isLoadingAtom } from "../../shared/store/weatherAtoms.ts";
+import { useAtomValue } from "jotai";
 
-function WeatherCardsList({ forecast, isLoading }: IWeatherCardsList) {
+function WeatherCardsList({ forecast }: IWeatherCardsList) {
   const [weekDaysOrder, setWeekDaysOrder] = useState<number[]>([]);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const isLoading = useAtomValue(isLoadingAtom);
 
   useEffect(() => {
     if (forecast) {
@@ -22,8 +25,8 @@ function WeatherCardsList({ forecast, isLoading }: IWeatherCardsList) {
   if (isLoading) {
     return (
       <div className={styles.list}>
-        {weekDaysOrder.map((el) => (
-          <SkeletonLoader key={el} width={103} height={160} />
+        {weekDaysOrder.map((_) => (
+          <SkeletonLoader width={103} height={160} />
         ))}
       </div>
     );

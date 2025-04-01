@@ -5,9 +5,11 @@ import { useAtomValue } from "jotai";
 import styles from "./Location.module.scss";
 import { ILocation } from "./Location.interface.ts";
 import cx from "classix";
+import { isLoadingAtom  } from "../../store/weatherAtoms.ts";
 
-function Location({ isLoading, className }: ILocation) {
+function Location({ className }: ILocation) {
   const city = useAtomValue(cityAtom);
+	const isLoading = useAtomValue(isLoadingAtom)
   const cls = cx(styles.location, className);
 
   return (

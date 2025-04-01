@@ -6,24 +6,24 @@ import {
   MetaInfo,
 } from "../../widgets/index.ts";
 import { useWeather } from "../../features/weather/index.ts";
+import { useSetAtom } from "jotai";
+import { isLoadingAtom } from "../../shared/store/weatherAtoms.ts";
+import { useEffect } from "react";
 
 function MainPage() {
   const { data, isLoading } = useWeather();
+  const setIsLoading = useSetAtom(isLoadingAtom);
+
+  useEffect(() => {
+    setIsLoading(isLoading);
+  }, [isLoading]);
+
   return (
     <div className={styles.wrapper}>
-      <MetaInfo data={data?.location} isLoading={isLoading} />
-      <MainContent
-        forecast={data?.forecast.forecastday}
-        isLoading={isLoading}
-      />
-      <AstroTimes
-        astro={data?.forecast.forecastday[0].astro}
-        isLoading={isLoading}
-      />
-      <WeatherCardsList
-        forecast={data?.forecast.forecastday}
-        isLoading={isLoading}
-      />
+      <MetaInfo data={data?.location} />
+      <MainContent forecast={data?.forecast.forecastday} />
+      <AstroTimes astro={data?.forecast.forecastday[0].astro} />
+      <WeatherCardsList forecast={data?.forecast.forecastday} />
     </div>
   );
 }

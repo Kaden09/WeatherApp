@@ -25,11 +25,17 @@ import {
   LIGHT_RAIN,
   DRIZZLE_RAIN,
 } from "./WeatherIcon.const.ts";
+import { isLoadingAtom } from "../../store/weatherAtoms.ts";
+import { SkeletonLoader } from "../index.ts";
 
 function WeatherIcon({ condition, isToday }: IWeatherIcon) {
   const theme = useAtomValue(themeAtom);
   const lowCondition = condition.toLowerCase().trim();
-  if (lowCondition === "sunny" || lowCondition === "clear") {
+  const isLoading = useAtomValue(isLoadingAtom);
+
+  if (isLoading) {
+    return <SkeletonLoader width={200} height={99} />;
+  } else if (lowCondition === "sunny" || lowCondition === "clear") {
     return isToday && theme === "dark" ? <MoonIcon /> : <SunIcon />;
   } else if (lowCondition === "partly cloudy") {
     return isToday && theme === "dark" ? (
