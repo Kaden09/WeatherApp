@@ -10,6 +10,7 @@ function AdditionalInfoList({ forecast }: IAdditionalInfoList) {
 
   useEffect(() => {
     if (forecast) {
+      const currentMonth = new Date(forecast[0].date).getMonth();
       setInfo([
         { item: "Wind", value: forecast[0].day.maxwind_kph, units: "km/h" },
         {
@@ -20,8 +21,18 @@ function AdditionalInfoList({ forecast }: IAdditionalInfoList) {
         { item: "Humidity", value: forecast[0].day.avghumidity, units: "%" },
         { item: "Clouds", value: forecast[0].hour[0].cloud, units: "%" },
         {
-          item: "Chance of Rain",
-          value: forecast[0].hour[0].chance_of_rain,
+          item:
+            currentMonth > 10 ||
+            currentMonth < 2 ||
+            forecast[0].hour[0].chance_of_snow > 0
+              ? "Chance of Snow"
+              : "Chance of Rain",
+          value:
+            currentMonth > 10 ||
+            currentMonth < 2 ||
+            forecast[0].hour[0].chance_of_snow > 0
+              ? forecast[0].hour[0].chance_of_snow
+              : forecast[0].hour[0].chance_of_rain,
           units: "%",
         },
       ]);
