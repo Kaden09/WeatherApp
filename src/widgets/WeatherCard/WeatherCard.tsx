@@ -24,17 +24,18 @@ function WeatherCard({
         </Text>
       </div>
       <div className={styles["weather-icon"]}>{weather}</div>
-      {theme === "dark" && isToday ? (
-        <div className={styles.degrees}>
-          <CardDegrees degrees={nightDegrees} color="primary" time="night" />
-          <CardDegrees degrees={dayDegrees} color="secondary" time="day" />
-        </div>
-      ) : (
-        <div className={styles.degrees}>
-          <CardDegrees degrees={dayDegrees} color="primary" time="day" />
-          <CardDegrees degrees={nightDegrees} color="secondary" time="night" />
-        </div>
-      )}
+      <div className={styles.degrees}>
+        <CardDegrees
+          degrees={dayDegrees}
+          color={isToday && theme === "dark" ? "secondary" : "primary"}
+          time="day"
+        />
+        <CardDegrees
+          degrees={nightDegrees}
+          color={isToday && theme === "dark" ? "primary" : "secondary"}
+          time="night"
+        />
+      </div>
     </div>
   );
 }
