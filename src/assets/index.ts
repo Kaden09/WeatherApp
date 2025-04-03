@@ -10,6 +10,7 @@ export { default as DrizzleRainIcon } from "./icons/RainIcons/DrizzleRainIcon.ts
   /* SNOW ICONS */
 }
 export { default as HeavySnowIcon } from "./icons/SnowIcons/HeavySnowIcon.tsx";
+export { default as ModerateSnowIcon } from "./icons/SnowIcons/ModerateSnowIcon.tsx";
 
 {
   /* ASTRO ICONS */
