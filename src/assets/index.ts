@@ -40,3 +40,4 @@ export { default as NightDrizzleRainIcon } from "./icons/NightIcons/NightDrizzle
 
 export { default as SunIcon } from "./icons/SunIcon.tsx";
 export { default as LightningIcon } from "./icons/LightningIcon.tsx";
+export { default as MistIcon } from "./icons/MistIcon.tsx";

@@ -15,6 +15,7 @@ import {
   NightLightRainIcon,
   NightDrizzleRainIcon,
   OvercastIcon,
+  MistIcon,
 } from "../../../assets/index.ts";
 import { IWeatherIcon } from "./WeatherIcon.interface.ts";
 import { useAtomValue } from "jotai";
@@ -43,6 +44,8 @@ function WeatherIcon({ condition, isToday }: IWeatherIcon) {
     ) : (
       <PartlyCloudyIcon />
     );
+  } else if (lowCondition === "mist") {
+    return <MistIcon />;
   } else if (lowCondition === "overcast") {
     return <OvercastIcon />;
   } else if (lowCondition === "cloudy") {
