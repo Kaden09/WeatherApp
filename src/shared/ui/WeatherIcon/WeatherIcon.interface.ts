@@ -1,4 +1,4 @@
 export interface IWeatherIcon {
-  condition: string;
+  condition?: string;
   isToday?: boolean;
 }

@@ -3,6 +3,18 @@ export interface ILocation {
   tz_id: string;
 }
 
+export interface ICurrent {
+  temp_c: number;
+  date: string;
+  cloud: number;
+  wind_kph: number;
+  precip_mm: number;
+  humidity: number;
+  condition: {
+    text: string;
+  };
+}
+
 export interface IAstro {
   sunrise: string;
   sunset: string;
@@ -14,6 +26,8 @@ export interface IDay {
   maxtemp_c: number;
   mintemp_c: number;
   maxwind_kph: number;
+	daily_chance_of_snow: number;
+	daily_chance_of_rain: number;
   totalprecip_mm: number;
   avghumidity: number;
 
@@ -42,6 +56,7 @@ export interface IForecast {
 
 export interface IWeather {
   location: ILocation;
+  current: ICurrent;
   forecast: {
     forecastday: IForecast[];
   };

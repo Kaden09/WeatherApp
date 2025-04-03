@@ -47,11 +47,7 @@ function WeatherCardsList({ forecast }: IWeatherCardsList) {
               nightDegrees={Math.round(forecast[i].day.mintemp_c)}
               weather={
                 <WeatherIcon
-                  condition={
-                    currentDate.getDay() === day
-                      ? forecast[i].hour[0].condition.text
-                      : forecast[i].day.condition.text
-                  }
+                  condition={forecast[i].day.condition.text}
                   isToday={currentDate.getDay() === day}
                 />
               }

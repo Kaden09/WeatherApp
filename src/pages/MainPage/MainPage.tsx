@@ -21,7 +21,10 @@ function MainPage() {
   return (
     <div className={styles.wrapper}>
       <MetaInfo data={data?.location} />
-      <MainContent forecast={data?.forecast.forecastday} />
+      <MainContent
+        current={data?.current}
+        forecast={data?.forecast.forecastday}
+      />
       <AstroTimes astro={data?.forecast.forecastday[0].astro} />
       <WeatherCardsList forecast={data?.forecast.forecastday} />
     </div>

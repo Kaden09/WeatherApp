@@ -29,7 +29,7 @@ import {
 import { isLoadingAtom } from "../../store/weatherAtoms.ts";
 import { SkeletonLoader } from "../index.ts";
 
-function WeatherIcon({ condition, isToday }: IWeatherIcon) {
+function WeatherIcon({ condition = "", isToday = false }: IWeatherIcon) {
   const theme = useAtomValue(themeAtom);
   const lowCondition = condition.toLowerCase().trim();
   const isLoading = useAtomValue(isLoadingAtom);
@@ -69,7 +69,11 @@ function WeatherIcon({ condition, isToday }: IWeatherIcon) {
       <LightRainIcon />
     );
   } else if (DRIZZLE_RAIN.includes(lowCondition)) {
-    return isToday ? <NightDrizzleRainIcon /> : <DrizzleRainIcon />;
+    return isToday && theme === "dark" ? (
+      <NightDrizzleRainIcon />
+    ) : (
+      <DrizzleRainIcon />
+    );
   } else if (condition.toLowerCase().includes("thunder")) {
     return <LightningIcon />;
   }
