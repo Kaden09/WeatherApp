@@ -11,7 +11,8 @@ function WeatherCard({
   month,
   dayDegrees,
   nightDegrees,
-  weather,
+  weatherIcon,
+  condition,
   isToday = false,
 }: IWeatherCard) {
   const theme = useAtomValue(themeAtom);
@@ -23,18 +24,23 @@ function WeatherCard({
           {getFormattedDate(month, date)}
         </Text>
       </div>
-      <div className={styles["weather-icon"]}>{weather}</div>
-      <div className={styles.degrees}>
-        <CardDegrees
-          degrees={dayDegrees}
-          color={isToday && theme === "dark" ? "secondary" : "primary"}
-          time="day"
-        />
-        <CardDegrees
-          degrees={nightDegrees}
-          color={isToday && theme === "dark" ? "primary" : "secondary"}
-          time="night"
-        />
+      <div className={styles["weather-icon"]}>{weatherIcon}</div>
+      <div className={styles["condition-info"]}>
+        <div className={styles.degrees}>
+          <CardDegrees
+            degrees={dayDegrees}
+            color={isToday && theme === "dark" ? "secondary" : "primary"}
+            time="day"
+          />
+          <CardDegrees
+            degrees={nightDegrees}
+            color={isToday && theme === "dark" ? "primary" : "secondary"}
+            time="night"
+          />
+        </div>
+        <Text color="secondary" size="middle" className={styles.condition}>
+          {condition}
+        </Text>
       </div>
     </div>
   );

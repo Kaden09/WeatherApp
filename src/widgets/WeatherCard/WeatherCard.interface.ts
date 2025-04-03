@@ -4,6 +4,7 @@ export interface IWeatherCard {
   month: number;
   dayDegrees: number;
   nightDegrees: number;
-  weather: React.ReactNode;
-	isToday: boolean;
+  weatherIcon: React.ReactNode;
+  condition: string;
+  isToday: boolean;
 }

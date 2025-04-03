@@ -28,11 +28,24 @@
     align-items: center;
   }
 
-  .degrees {
+  .condition-info {
     display: flex;
-    justify-content: space-between;
-    width: 80%;
-    color: rgba(255, 255, 255, 0.5);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+
+    .degrees {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .condition {
+      text-align: center;
+    }
   }
 }
 

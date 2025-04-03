@@ -6,6 +6,10 @@
   width: 100%;
   animation: expansion 2s;
 
+  .sunrise, .difference, .sunset {
+    white-space: nowrap;
+  }
+
   .dotted-line {
     border-top: 1px dotted rgba(255,255,255,0.5);
     width: 100%;

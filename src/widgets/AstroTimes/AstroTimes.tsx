@@ -16,13 +16,13 @@ import {
   getDifference,
   compareTimes,
 } from "./AstroTimes.utils.ts";
-import { isLoadingAtom  } from "../../shared/store/weatherAtoms.ts";
+import { isLoadingAtom } from "../../shared/store/weatherAtoms.ts";
 
 function AstroTimes({ astro }: IAstroTimes) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const time = useAtomValue(timeAtom);
-	const isLoading = useAtomValue(isLoadingAtom)
+  const isLoading = useAtomValue(isLoadingAtom);
   const [theme, setTheme] = useAtom(themeAtom);
 
   useEffect(() => {
@@ -59,14 +59,14 @@ function AstroTimes({ astro }: IAstroTimes) {
         {isLoading ? (
           <SkeletonLoader width={90} height={26} />
         ) : (
-          <Title size="middle">
+          <Title size="middle" className={styles.sunrise}>
             {theme === "dark" ? astro?.moonrise : astro?.sunrise}
           </Title>
         )}
       </IconWithText>
       <div className={styles["dotted-line"]}></div>
 
-      <Title size="middle" color="secondary">
+      <Title size="middle" color="secondary" className={styles.difference}>
         {isLoading ? (
           <SkeletonLoader width={90} height={26} />
         ) : (
@@ -89,7 +89,7 @@ function AstroTimes({ astro }: IAstroTimes) {
         {isLoading ? (
           <SkeletonLoader width={70} height={26} />
         ) : (
-          <Title size="middle">
+          <Title size="middle" className={styles.sunset}>
             {theme === "dark" ? astro?.moonset : astro?.sunset}
           </Title>
         )}
