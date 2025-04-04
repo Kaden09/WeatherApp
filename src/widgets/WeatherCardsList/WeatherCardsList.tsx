@@ -5,11 +5,13 @@ import { WeatherIcon, SkeletonLoader } from "../../shared/ui/index.ts";
 import { IWeatherCardsList } from "./WeatherCardsList.interface.ts";
 import { isLoadingAtom } from "../../shared/store/weatherAtoms.ts";
 import { useAtomValue } from "jotai";
+import { themeAtom } from "../../shared/store/themeAtom.ts";
 
 function WeatherCardsList({ forecast }: IWeatherCardsList) {
   const [weekDaysOrder, setWeekDaysOrder] = useState<number[]>([]);
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState<Date>(new Date());
   const isLoading = useAtomValue(isLoadingAtom);
+  const theme = useAtomValue(themeAtom);
 
   useEffect(() => {
     if (forecast) {
@@ -37,6 +39,8 @@ function WeatherCardsList({ forecast }: IWeatherCardsList) {
       {forecast &&
         weekDaysOrder.map((day, i) => {
           const date = new Date(forecast[i].date);
+          const dayCondition = forecast[i].day.condition.text;
+          const nightCondition = forecast[i].hour[0].condition.text;
           return (
             <WeatherCard
               key={day}
@@ -47,11 +51,11 @@ function WeatherCardsList({ forecast }: IWeatherCardsList) {
               nightDegrees={Math.round(forecast[i].day.mintemp_c)}
               weatherIcon={
                 <WeatherIcon
-                  condition={forecast[i].day.condition.text}
+                  condition={theme === "dark" ? nightCondition : dayCondition}
                   isToday={currentDate.getDay() === day}
                 />
               }
-              condition={forecast[i].day.condition.text}
+              condition={theme === "dark" ? nightCondition : dayCondition}
               isToday={currentDate.getDay() === day}
             />
           );
