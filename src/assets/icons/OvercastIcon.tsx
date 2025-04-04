@@ -1,7 +1,7 @@
 function OvercastIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 15">
-      <mask id="cloud">
+      <mask id="overcast">
         <rect width="24" height="15" fill="#fff" />
         <g fill="#000">
           <circle cx="16" cy="8" r="5.4" />
@@ -9,8 +9,8 @@ function OvercastIcon() {
         </g>
       </mask>
       <g fill="#e0e0e0">
-        <circle cx="7" cy="3.9" r="3" mask="url(#cloud)" id="sun" />
-        <circle cx="11" cy="4.4" r="2.5" mask="url(#cloud)" id="sun" />
+        <circle cx="7" cy="3.9" r="3" mask="url(#overcast)" id="sun" />
+        <circle cx="11" cy="4.4" r="2.5" mask="url(#overcast)" id="sun" />
       </g>
       <g fill="#fefefe">
         <circle cx="16" cy="8" r="5" />

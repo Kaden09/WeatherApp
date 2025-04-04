@@ -18,16 +18,14 @@ export interface ICurrent {
 export interface IAstro {
   sunrise: string;
   sunset: string;
-  moonrise: string;
-  moonset: string;
 }
 
 export interface IDay {
   maxtemp_c: number;
   mintemp_c: number;
   maxwind_kph: number;
-	daily_chance_of_snow: number;
-	daily_chance_of_rain: number;
+  daily_chance_of_snow: number;
+  daily_chance_of_rain: number;
   totalprecip_mm: number;
   avghumidity: number;
 

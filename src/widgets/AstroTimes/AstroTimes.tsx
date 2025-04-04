@@ -1,14 +1,9 @@
 import styles from "./AstroTimes.module.scss";
 import { IconWithText, Title, SkeletonLoader } from "../../shared/ui/index.ts";
-import {
-  SunriseIcon,
-  SunsetIcon,
-  MoonriseIcon,
-  MoonsetIcon,
-} from "../../assets/index.ts";
+import { SunriseIcon, SunsetIcon } from "../../assets/index.ts";
 import { useEffect, useState } from "react";
 import { IAstroTimes } from "./AstroTimes.interface.ts";
-import { useAtom, useAtomValue } from "jotai";
+import { useSetAtom, useAtomValue } from "jotai";
 import { timeAtom } from "../../shared/store/timeAtom.ts";
 import { themeAtom } from "../../shared/store/themeAtom.ts";
 import {
@@ -23,11 +18,11 @@ function AstroTimes({ astro }: IAstroTimes) {
   const [minutes, setMinutes] = useState(0);
   const time = useAtomValue(timeAtom);
   const isLoading = useAtomValue(isLoadingAtom);
-  const [theme, setTheme] = useAtom(themeAtom);
+  const setTheme = useSetAtom(themeAtom);
 
   useEffect(() => {
     if (astro) {
-      let diff = getDifference(astro, theme);
+      let diff = getDifference(astro);
       if (diff) {
         setHours(diff / (1000 * 60 * 60));
         setMinutes((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -49,8 +44,6 @@ function AstroTimes({ astro }: IAstroTimes) {
         icon={
           isLoading ? (
             <SkeletonLoader width={26} height={26} />
-          ) : theme === "dark" ? (
-            <MoonriseIcon />
           ) : (
             <SunriseIcon />
           )
@@ -60,7 +53,7 @@ function AstroTimes({ astro }: IAstroTimes) {
           <SkeletonLoader width={90} height={26} />
         ) : (
           <Title size="middle" className={styles.sunrise}>
-            {theme === "dark" ? astro?.moonrise : astro?.sunrise}
+            {astro?.sunrise}
           </Title>
         )}
       </IconWithText>
@@ -77,20 +70,14 @@ function AstroTimes({ astro }: IAstroTimes) {
       <div className={styles["dotted-line"]}></div>
       <IconWithText
         icon={
-          isLoading ? (
-            <SkeletonLoader width={26} height={26} />
-          ) : theme === "dark" ? (
-            <MoonsetIcon />
-          ) : (
-            <SunsetIcon />
-          )
+          isLoading ? <SkeletonLoader width={26} height={26} /> : <SunsetIcon />
         }
       >
         {isLoading ? (
           <SkeletonLoader width={70} height={26} />
         ) : (
           <Title size="middle" className={styles.sunset}>
-            {theme === "dark" ? astro?.moonset : astro?.sunset}
+            {astro?.sunset}
           </Title>
         )}
       </IconWithText>

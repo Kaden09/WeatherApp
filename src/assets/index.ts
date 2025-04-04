@@ -19,8 +19,6 @@ export { default as BarelySnowIcon } from "./icons/SnowIcons/BarelySnowIcon.tsx"
 }
 export { default as SunsetIcon } from "./icons/SunsetIcon.tsx";
 export { default as SunriseIcon } from "./icons/SunriseIcon.tsx";
-export { default as MoonsetIcon } from "./icons/MoonsetIcon.tsx";
-export { default as MoonriseIcon } from "./icons/MoonriseIcon.tsx";
 
 {
   /* CLOUD ICONS */
