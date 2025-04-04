@@ -1,5 +1,5 @@
 export interface IAdditionalInfo {
   item: string;
-  value: number;
-  units: string;
+  value: number | string;
+  units?: string;
 }

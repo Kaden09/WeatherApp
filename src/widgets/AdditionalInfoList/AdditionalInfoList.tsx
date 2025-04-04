@@ -6,12 +6,15 @@ import { ADDITIONAL_INFO } from "./AdditionalInfo.const.ts";
 
 function AdditionalInfoList({ current, forecast }: IAdditionalInfoList) {
   const [info, setInfo] =
-    useState<{ item: string; value: number; units: string }[]>(ADDITIONAL_INFO);
+    useState<{ item: string; value: number | string; units?: string }[]>(
+      ADDITIONAL_INFO,
+    );
 
   useEffect(() => {
     if (current && forecast) {
       const currentMonth = new Date(current.date).getMonth();
       setInfo([
+        { item: "Condition", value: current.condition.text },
         { item: "Wind", value: current.wind_kph, units: "km/h" },
         {
           item: "Precipitation",
