@@ -24,3 +24,25 @@ export const DRIZZLE_RAIN = [
   "freezing drizzle",
   "heavy freezing drizzle",
 ];
+
+export const HEAVY_SNOW = ["patchy heavy snow", "heavy snow"];
+
+export const MODERATE_SNOW = [
+  "moderate or heavy sleet",
+  "moderate snow",
+  "patchy moderate snow",
+  "moderate or heavy snow showers",
+];
+
+export const LIGHT_SNOW = [
+  "light sleet",
+  "light snow",
+  "light snow showers",
+  "patchy light snow",
+];
+
+export const BARELY_SNOW = [
+  "patchy snow possible",
+  "patchy sleet possible",
+  "ice pellets",
+];

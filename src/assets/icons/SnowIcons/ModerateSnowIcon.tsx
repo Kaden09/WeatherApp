@@ -10,8 +10,8 @@ function ModerateSnowIcon() {
 
       <defs>
         <g
-          id="snow-icon2"
-          stroke="#29B6F6"
+          id="snow-icon"
+          stroke="#B3E5FC"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"

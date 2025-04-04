@@ -11,7 +11,7 @@ function BarelySnowIcon() {
       <defs>
         <g
           id="drop-icon"
-          stroke="#29B6F6"
+          stroke=" #B3E5FC"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"

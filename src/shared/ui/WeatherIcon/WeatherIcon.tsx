@@ -16,6 +16,10 @@ import {
   NightDrizzleRainIcon,
   OvercastIcon,
   MistIcon,
+  HeavySnowIcon,
+  ModerateSnowIcon,
+  LightSnowIcon,
+  BarelySnowIcon,
 } from "../../../assets/index.ts";
 import { IWeatherIcon } from "./WeatherIcon.interface.ts";
 import { useAtomValue } from "jotai";
@@ -25,6 +29,10 @@ import {
   MODERATE_RAIN,
   LIGHT_RAIN,
   DRIZZLE_RAIN,
+  HEAVY_SNOW,
+  MODERATE_SNOW,
+  LIGHT_SNOW,
+  BARELY_SNOW,
 } from "./WeatherIcon.const.ts";
 import { isLoadingAtom } from "../../store/weatherAtoms.ts";
 import { SkeletonLoader } from "../index.ts";
@@ -74,6 +82,14 @@ function WeatherIcon({ condition = "", isToday = false }: IWeatherIcon) {
     ) : (
       <DrizzleRainIcon />
     );
+  } else if (HEAVY_SNOW.includes(lowCondition)) {
+    return <HeavySnowIcon />;
+  } else if (MODERATE_SNOW.includes(lowCondition)) {
+    return <ModerateSnowIcon />;
+  } else if (LIGHT_SNOW.includes(lowCondition)) {
+    return <LightSnowIcon />;
+  } else if (BARELY_SNOW.includes(lowCondition)) {
+    return <BarelySnowIcon />;
   } else if (condition.toLowerCase().includes("thunder")) {
     return <LightningIcon />;
   }
