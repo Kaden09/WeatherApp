@@ -36,14 +36,18 @@ import {
 } from "./WeatherIcon.const.ts";
 import { isLoadingAtom } from "../../store/weatherAtoms.ts";
 import { SkeletonLoader } from "../index.ts";
+import { useMediaQuery } from "react-responsive";
 
 function WeatherIcon({ condition = "", isToday = false }: IWeatherIcon) {
   const theme = useAtomValue(themeAtom);
   const lowCondition = condition.toLowerCase().trim();
   const isLoading = useAtomValue(isLoadingAtom);
+  const isMobile = useMediaQuery({ maxWidth: 400 });
 
   if (isLoading) {
-    return <SkeletonLoader width={200} height={99} />;
+    return (
+      <SkeletonLoader width={isMobile ? 90 : 200} height={isMobile ? 60 : 99} />
+    );
   } else if (lowCondition === "sunny" || lowCondition === "clear") {
     return isToday && theme === "dark" ? <MoonIcon /> : <SunIcon />;
   } else if (lowCondition === "partly cloudy") {

@@ -17,12 +17,22 @@ function Location({ className }: ILocation) {
   return (
     <IconWithText
       icon={
-        isLoading ? <SkeletonLoader width={26} height={26} /> : <LocationIcon />
+        isLoading ? (
+          <SkeletonLoader
+            width={isMobile ? 16 : 26}
+            height={isMobile ? 16 : 26}
+          />
+        ) : (
+          <LocationIcon />
+        )
       }
       className={cls}
     >
       {isLoading ? (
-        <SkeletonLoader width={130} height={26} />
+        <SkeletonLoader
+          width={isMobile ? 80 : 130}
+          height={isMobile ? 16 : 26}
+        />
       ) : (
         <Title
           size={isMobile ? "middle" : "large"}

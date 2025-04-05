@@ -16,12 +16,22 @@ function RealTimeClock({ location, className }: IRealTimeClock) {
   return (
     <IconWithText
       icon={
-        isLoading ? <SkeletonLoader width={26} height={26} /> : <ClockIcon />
+        isLoading ? (
+          <SkeletonLoader
+            width={isMobile ? 16 : 26}
+            height={isMobile ? 16 : 26}
+          />
+        ) : (
+          <ClockIcon />
+        )
       }
       className={cls}
     >
       {isLoading ? (
-        <SkeletonLoader width={130} height={26} />
+        <SkeletonLoader
+          width={isMobile ? 80 : 130}
+          height={isMobile ? 16 : 26}
+        />
       ) : (
         <div className={styles["real-time-clock"]}>
           <Title size={isMobile ? "middle" : "large"}>

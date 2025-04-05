@@ -50,8 +50,14 @@ function AdditionalInfoList({ current, forecast }: IAdditionalInfoList) {
       <div className={styles["additional-info-list"]}>
         {info.map((_) => (
           <div className={styles.loader}>
-            <SkeletonLoader width={80} height={15} />
-            <SkeletonLoader width={50} height={15} />
+            <SkeletonLoader
+              width={isMobile ? 50 : 80}
+              height={isMobile ? 10 : 15}
+            />
+            <SkeletonLoader
+              width={isMobile ? 40 : 50}
+              height={isMobile ? 10 : 15}
+            />
           </div>
         ))}
       </div>

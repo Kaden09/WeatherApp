@@ -12,6 +12,7 @@ import {
   compareTimes,
 } from "./AstroTimes.utils.ts";
 import { isLoadingAtom } from "../../shared/store/weatherAtoms.ts";
+import { useMediaQuery } from "react-responsive";
 
 function AstroTimes({ astro }: IAstroTimes) {
   const [hours, setHours] = useState(0);
@@ -19,6 +20,7 @@ function AstroTimes({ astro }: IAstroTimes) {
   const time = useAtomValue(timeAtom);
   const isLoading = useAtomValue(isLoadingAtom);
   const setTheme = useSetAtom(themeAtom);
+  const isMobile = useMediaQuery({ maxWidth: 400 });
 
   useEffect(() => {
     if (astro) {
@@ -43,14 +45,20 @@ function AstroTimes({ astro }: IAstroTimes) {
       <IconWithText
         icon={
           isLoading ? (
-            <SkeletonLoader width={26} height={26} />
+            <SkeletonLoader
+              width={isMobile ? 16 : 26}
+              height={isMobile ? 16 : 26}
+            />
           ) : (
             <SunriseIcon />
           )
         }
       >
         {isLoading ? (
-          <SkeletonLoader width={90} height={26} />
+          <SkeletonLoader
+            width={isMobile ? 50 : 70}
+            height={isMobile ? 16 : 26}
+          />
         ) : (
           <Title size="middle" className={styles.sunrise}>
             {astro?.sunrise}
@@ -61,7 +69,10 @@ function AstroTimes({ astro }: IAstroTimes) {
 
       <Title size="middle" color="secondary" className={styles.difference}>
         {isLoading ? (
-          <SkeletonLoader width={90} height={26} />
+          <SkeletonLoader
+            width={isMobile ? 60 : 90}
+            height={isMobile ? 16 : 26}
+          />
         ) : (
           `${Math.floor(hours)} h ${Math.floor(minutes)} m`
         )}
@@ -70,11 +81,21 @@ function AstroTimes({ astro }: IAstroTimes) {
       <div className={styles["dotted-line"]}></div>
       <IconWithText
         icon={
-          isLoading ? <SkeletonLoader width={26} height={26} /> : <SunsetIcon />
+          isLoading ? (
+            <SkeletonLoader
+              width={isMobile ? 16 : 26}
+              height={isMobile ? 16 : 26}
+            />
+          ) : (
+            <SunsetIcon />
+          )
         }
       >
         {isLoading ? (
-          <SkeletonLoader width={70} height={26} />
+          <SkeletonLoader
+            width={isMobile ? 50 : 70}
+            height={isMobile ? 16 : 26}
+          />
         ) : (
           <Title size="middle" className={styles.sunset}>
             {astro?.sunset}

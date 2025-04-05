@@ -6,12 +6,14 @@ import { IWeatherCardsList } from "./WeatherCardsList.interface.ts";
 import { isLoadingAtom } from "../../shared/store/weatherAtoms.ts";
 import { useAtomValue } from "jotai";
 import { themeAtom } from "../../shared/store/themeAtom.ts";
+import { useMediaQuery } from "react-responsive";
 
 function WeatherCardsList({ forecast }: IWeatherCardsList) {
   const [weekDaysOrder, setWeekDaysOrder] = useState<number[]>([]);
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
   const isLoading = useAtomValue(isLoadingAtom);
   const theme = useAtomValue(themeAtom);
+  const isMobile = useMediaQuery({ maxWidth: 400 });
 
   useEffect(() => {
     if (forecast) {
@@ -28,7 +30,10 @@ function WeatherCardsList({ forecast }: IWeatherCardsList) {
     return (
       <div className={styles.list}>
         {weekDaysOrder.map((_) => (
-          <SkeletonLoader width={103} height={160} />
+          <SkeletonLoader
+            width={isMobile ? 40 : 103}
+            height={isMobile ? 80 : 160}
+          />
         ))}
       </div>
     );
