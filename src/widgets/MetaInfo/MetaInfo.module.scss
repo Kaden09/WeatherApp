@@ -1,3 +1,16 @@
+.mobile-meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+  .meta-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 .meta-info {
   display: flex;
   justify-content: space-between;

@@ -5,12 +5,12 @@
   animation: fadeIn 2s;
 
   .degrees {
-    font-size: 120px;
+    font-size: clamp(3.125rem, 0.321rem + 11.22vw, 7.5rem);
     font-weight: 400;
   }
 
   .celsius {
-    font-size: 50px;
+    font-size: clamp(1.563rem, 0.561rem + 4.01vw, 3.125rem);
   }
 }
 

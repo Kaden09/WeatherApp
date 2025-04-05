@@ -2,7 +2,7 @@ function LocationIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="26px"
+      width="clamp(1rem, 0.599rem + 1.6vw, 1.625rem)"
       viewBox="0 0 24 24"
       fill="none"
       stroke="rgba(255,255,255,0.5)"

@@ -1,7 +1,7 @@
-import {ColorType} from "../../config/index.ts";
+import { ColorType } from "../../config/index.ts";
 
 export interface ICardDegrees {
-	degrees: number;
-	color: ColorType;
-	time: string;
+  degrees: number;
+  color: ColorType;
+  time?: string;
 }

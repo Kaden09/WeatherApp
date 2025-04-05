@@ -2,13 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: clamp(0.313rem, 1.25vw, 1.25rem);
   width: 100%;
 
   .icon {
     display: flex;
     justify-content: center;
-    width: 30%;
+    width: clamp(5rem, -1.811rem + 27.24vw, 15.625rem);
     animation: IconFadeIn 2s;
   }
 }

@@ -4,11 +4,13 @@ import { Title } from "../index.ts";
 import { IClock } from "./Clock.interface.ts";
 import { useAtom } from "jotai";
 import { timeAtom } from "../../store/timeAtom.ts";
+import { useMediaQuery } from "react-responsive";
 
-function Clock({ data }: IClock) {
+function Clock({ location }: IClock) {
   const [time, setTime] = useAtom(timeAtom);
+  const isMobile = useMediaQuery({ maxWidth: 400 });
 
-  const timeZone = useMemo(() => data?.tz_id, [data]);
+  const timeZone = useMemo(() => location?.tz_id, [location]);
 
   useEffect(() => {
     if (!timeZone) return;
@@ -32,9 +34,9 @@ function Clock({ data }: IClock) {
 
   return (
     <div className={styles.clock}>
-      <Title size="large">{hours}</Title>
+      <Title size={isMobile ? "middle" : "large"}>{hours}</Title>
       <span className={styles.colon}>:</span>
-      <Title size="large">{minutes}</Title>
+      <Title size={isMobile ? "middle" : "large"}>{minutes}</Title>
     </div>
   );
 }

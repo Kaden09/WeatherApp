@@ -4,10 +4,11 @@
   justify-self: start;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
+  gap: clamp(0.313rem, 0.112rem + 0.8vw, 0.625rem);
   width: 100%;
-  padding: 15px 10px;
-  border-radius: 10px;
+  padding: clamp(0.625rem, 0.425rem + 0.8vw, 0.938rem)
+    clamp(0.438rem, 0.317rem + 0.48vw, 0.625rem);
+  border-radius: clamp(0.313rem, 0.112rem + 0.8vw, 0.625rem);
   background: rgba(255, 255, 255, 0.03);
   transition: all 0.2s;
   animation: fadeIn 2s;
@@ -26,6 +27,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .mobile-degrees-test {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
   }
 
   .condition-info {

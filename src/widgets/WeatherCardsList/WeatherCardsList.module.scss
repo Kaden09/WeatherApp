@@ -1,4 +1,6 @@
 .list {
   display: flex;
-  gap: 10px;
+  gap: clamp(0.313rem, 0.112rem + 0.8vw, 0.625rem);
+  max-width: clamp(20rem, 0.769rem + 76.92vw, 50rem);
+  width: 100%;
 }

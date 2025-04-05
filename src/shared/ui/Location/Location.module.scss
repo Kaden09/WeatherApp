@@ -1,6 +1,6 @@
 .location {
   display: flex;
-  max-width: 250px;
+  max-width: clamp(11.25rem, 8.446rem + 11.22vw, 15.625rem);
 
   .city-name {
     line-height: 1.2;

@@ -3,42 +3,45 @@ import { IAdditionalInfoList } from "./AdditionalInfoList.interface.ts";
 import { useState, useEffect } from "react";
 import { AdditionalInfo, SkeletonLoader } from "../../shared/ui/index.ts";
 import { ADDITIONAL_INFO } from "./AdditionalInfo.const.ts";
+import { useMediaQuery } from "react-responsive";
+import {
+  getPrecipChanceType,
+  getPrecipChanceValue,
+} from "./AdditionalInfoList.utils.ts";
 
 function AdditionalInfoList({ current, forecast }: IAdditionalInfoList) {
   const [info, setInfo] =
     useState<{ item: string; value: number | string; units?: string }[]>(
       ADDITIONAL_INFO,
     );
+  const isMobile = useMediaQuery({ maxWidth: 400 });
 
   useEffect(() => {
     if (current && forecast) {
       const currentMonth = new Date(current.date).getMonth();
-      setInfo([
+
+      const mobileItems = [
         { item: "Condition", value: current.condition.text },
         { item: "Wind", value: current.wind_kph, units: "km/h" },
+        { item: "Clouds", value: current.cloud, units: "%" },
+        {
+          item: getPrecipChanceType(currentMonth, forecast),
+          value: getPrecipChanceValue(currentMonth, forecast),
+          units: "%",
+        },
+      ];
+
+      const desctopItems = [
+        ...mobileItems,
         {
           item: "Precipitation",
           value: current.precip_mm,
           units: "mm",
         },
         { item: "Humidity", value: current.humidity, units: "%" },
-        { item: "Clouds", value: current.cloud, units: "%" },
-        {
-          item:
-            currentMonth > 10 ||
-            currentMonth < 2 ||
-            forecast[0].day.daily_chance_of_snow > 0
-              ? "Chance of Snow"
-              : "Chance of Rain",
-          value:
-            currentMonth > 10 ||
-            currentMonth < 2 ||
-            forecast[0].day.daily_chance_of_snow > 0
-              ? forecast[0].day.daily_chance_of_snow
-              : forecast[0].day.daily_chance_of_rain,
-          units: "%",
-        },
-      ]);
+      ];
+
+      setInfo(isMobile ? mobileItems : desctopItems);
     }
   }, [forecast, current]);
 

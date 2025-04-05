@@ -5,12 +5,14 @@ import { useAtomValue } from "jotai";
 import styles from "./Location.module.scss";
 import { ILocation } from "./Location.interface.ts";
 import cx from "classix";
-import { isLoadingAtom  } from "../../store/weatherAtoms.ts";
+import { isLoadingAtom } from "../../store/weatherAtoms.ts";
+import { useMediaQuery } from "react-responsive";
 
 function Location({ className }: ILocation) {
   const city = useAtomValue(cityAtom);
-	const isLoading = useAtomValue(isLoadingAtom)
+  const isLoading = useAtomValue(isLoadingAtom);
   const cls = cx(styles.location, className);
+  const isMobile = useMediaQuery({ maxWidth: 400 });
 
   return (
     <IconWithText
@@ -22,7 +24,10 @@ function Location({ className }: ILocation) {
       {isLoading ? (
         <SkeletonLoader width={130} height={26} />
       ) : (
-        <Title size="large" className={styles["city-name"]}>
+        <Title
+          size={isMobile ? "middle" : "large"}
+          className={styles["city-name"]}
+        >
           {city}
         </Title>
       )}

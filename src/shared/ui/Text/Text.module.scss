@@ -1,13 +1,13 @@
 .text {
   font-weight: 500;
   &__small {
-    font-size: 8px;
+    font-size: clamp(0.375rem, 0.295rem + 0.32vw, 0.5rem);
   }
   &__middle {
-    font-size: 10px;
+    font-size: clamp(0.5rem, 0.42rem + 0.32vw, 0.625rem);
   }
   &__large {
-    font-size: 12px;
+    font-size: clamp(0.625rem, 0.545rem + 0.32vw, 0.75rem);
   }
   &__primary {
     color: var(--primary-text-color);

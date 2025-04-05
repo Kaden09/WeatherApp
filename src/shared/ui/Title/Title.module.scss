@@ -10,13 +10,13 @@
     font-weight: 700;
   }
   &__small {
-    font-size: 14px;
+    font-size: clamp(0.5rem, 0.26rem + 0.96vw, 0.875rem);
   }
   &__middle {
-    font-size: 16px;
+    font-size: clamp(0.625rem, 0.385rem + 0.96vw, 1rem);
   }
   &__large {
-    font-size: 18px;
+    font-size: clamp(0.75rem, 0.51rem + 0.96vw, 1.125rem);
   }
   &__primary {
     color: var(--primary-text-color);

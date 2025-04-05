@@ -4,12 +4,15 @@ import { WEEK_DAYS } from "../../constants/index.ts";
 import styles from "./RealTimeClock.module.scss";
 import cx from "classix";
 import { IRealTimeClock } from "./RealTimeClock.interface.ts";
- import { isLoadingAtom  } from "../../store/weatherAtoms.ts";
- import { useAtomValue  } from "jotai";
+import { isLoadingAtom } from "../../store/weatherAtoms.ts";
+import { useAtomValue } from "jotai";
+import { useMediaQuery } from "react-responsive";
 
-function RealTimeClock({ data, className }: IRealTimeClock) {
+function RealTimeClock({ location, className }: IRealTimeClock) {
   const cls = cx(styles["real-time-clock"], className);
-	const isLoading = useAtomValue(isLoadingAtom)
+  const isLoading = useAtomValue(isLoadingAtom);
+  const isMobile = useMediaQuery({ maxWidth: 400 });
+
   return (
     <IconWithText
       icon={
@@ -21,8 +24,10 @@ function RealTimeClock({ data, className }: IRealTimeClock) {
         <SkeletonLoader width={130} height={26} />
       ) : (
         <div className={styles["real-time-clock"]}>
-          <Title size="large">{WEEK_DAYS[new Date().getDay()]}, </Title>
-          <Clock data={data} />
+          <Title size={isMobile ? "middle" : "large"}>
+            {WEEK_DAYS[new Date().getDay()]},{" "}
+          </Title>
+          <Clock location={location} />
         </div>
       )}
     </IconWithText>

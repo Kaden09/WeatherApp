@@ -6,11 +6,11 @@
 }
 
 .searchbar {
-  font-size: 14px;
+  font-size: clamp(0.625rem, 0.465rem + 0.64vw, 0.875rem);
   background: rgba(255, 255, 255, 0.05);
   border: none;
-  border-radius: 15px;
-  width: 300px;
+  border-radius: clamp(0.5rem, 0.22rem + 1.12vw, 0.938rem);
+  width: 320px;
   color: rgba(255, 255, 255, 0.5);
   padding: 10px 15px;
   outline: none;

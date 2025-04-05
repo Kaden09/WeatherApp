@@ -3,8 +3,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
+  gap: clamp(1.25rem, 0.449rem + 3.21vw, 2.5rem);
   height: 100vh;
-  width: 800px;
+  width: clamp(20rem, 0.769rem + 76.92vw, 50rem);
   margin: 0 auto;
 }
