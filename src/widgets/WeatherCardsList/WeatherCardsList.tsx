@@ -19,7 +19,7 @@ function WeatherCardsList({ forecast }: IWeatherCardsList) {
     if (forecast) {
       setCurrentDate(new Date(forecast[0].date));
     }
-    const defautOrder = [0, 1, 2, 3, 4, 5, 6];
+    const defautOrder = [0, 1, 2];
     setWeekDaysOrder([
       ...defautOrder.slice(currentDate.getDay()),
       ...defautOrder.slice(0, currentDate.getDay()),
@@ -43,7 +43,9 @@ function WeatherCardsList({ forecast }: IWeatherCardsList) {
     <div className={styles.list}>
       {forecast &&
         weekDaysOrder.map((day, i) => {
+          if (!forecast[i]) return null;
           const date = new Date(forecast[i].date);
+          console.log(forecast[i].date);
           const dayCondition = forecast[i].day.condition.text;
           const nightCondition = forecast[i].hour[0].condition.text;
           return (

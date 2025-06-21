@@ -10,6 +10,7 @@ async function searchCities(city: string): Promise<ISearchCities[]> {
     });
     return data;
   } catch (error) {
+    alert(error);
     throw error;
   }
 }

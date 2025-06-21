@@ -6,7 +6,7 @@ async function fetchWeather(city: string): Promise<IWeather> {
     let { data } = await weatherApi.get<IWeather>(`/forecast.json`, {
       params: {
         q: city,
-        days: 7,
+        days: 3,
         lang: "en",
       },
     });

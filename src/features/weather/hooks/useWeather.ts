@@ -8,10 +8,7 @@ function useWeather() {
 
   return useQuery({
     queryKey: ["weather", city],
-    queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-      return fetchWeather(city);
-    },
+    queryFn: () => fetchWeather(city),
     enabled: !!city,
     staleTime: 1000 * 60 * 5,
   });
